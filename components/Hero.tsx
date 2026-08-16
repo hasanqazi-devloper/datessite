@@ -1,181 +1,232 @@
-"use client";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck, Factory, Globe2, BadgeCheck } from "lucide-react";
 
-import { useEffect, useState } from "react";
-import { m } from "framer-motion";
-import { Search, Calculator, HelpCircle, ChevronDown, ArrowRight } from "lucide-react";
-
-export default function Hero() {
-  const heroBg = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070";
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkDeviceWidth = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkDeviceWidth();
-    window.addEventListener("resize", checkDeviceWidth);
-    return () => window.removeEventListener("resize", checkDeviceWidth);
-  }, []);
-
+export default function HeroSection() {
   return (
-    // ✅ FIX: Increased top padding to pt-44/md:pt-56 to eliminate any Navbar text overlaps
-    <section className="relative min-h-screen w-full flex items-center justify-center text-center px-6 overflow-hidden bg-[#000000] pt-44 md:pt-56 pb-24">
-      
-      {/* ⚡ HIGH-PERFORMANCE LCP BACKGROUND ENGINE */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none transform-gpu">
-        <img 
-          src={heroBg} 
-          alt="Premium Dallas Architecture" 
-          fetchPriority="high"
-          decoding="async"
-          className="w-full h-full object-cover opacity-50 scale-100 will-change-transform brightness-[0.85] contrast-[1.05]" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#050505]/60 to-black/95" />
-      </div>
-      
-      {/* ALIGNED TEXT STACK CONTAINER - Bounded beautifully at max-w-[1400px] */}
-      <div className="relative z-10 max-w-[2200px] mx-auto space-y-10 md:space-y-14 w-full transform-gpu flex flex-col justify-center items-center">
-        
-        {/* UPPER RIBBON STRAP - Ambient Glow Lock */}
-        <m.div 
-          initial={isMobile ? { opacity: 1 } : { opacity: 0, y: -10 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.4 }}
-          className="flex items-center gap-2"
-        >
-          <span className="text-[#C9A050] text-[10px] sm:text-[11px] tracking-[0.45em] uppercase font-black block drop-shadow-[0_4px_12px_rgba(201,160,80,0.25)] select-none antialiased">
-            Sohip Style <span className="text-white/30 mx-1.5">•</span> Boutique Service <span className="text-white/30 mx-1.5">•</span> Local Edge
-          </span>
-        </m.div>
+    <section className="relative overflow-hidden bg-emerald-950 text-white">
+      {/* =========================================================
+          BACKGROUND ATMOSPHERE
+      ========================================================== */}
 
-        {/* MAIN TYPOGRAPHY HEADER - Ultra Luxury Editorial Layout */}
-        <div className="space-y-4 max-w-5xl mx-auto">
-          <m.h1 
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, ease: "easeOut" }} 
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px] text-white leading-[1.02] text-center  font-sans antialiased tracking-tighter font-black"
-          >
-            SOHIP
-            <span className="block font-bold tracking-wide text-white/95 text-4xl sm:text-6xl md:text-7xl lg:text-[90px] mt-2 font-sans">
-              Dallas Homes
+      {/* Main emerald glow */}
+      <div
+        className="pointer-events-none absolute -right-40 -top-40 h-[650px] w-[650px] rounded-full bg-emerald-500/10 blur-[120px]"
+        aria-hidden="true"
+      />
+
+      {/* Secondary glow */}
+      <div
+        className="pointer-events-none absolute -bottom-40 left-1/3 h-[450px] w-[450px] rounded-full bg-emerald-400/5 blur-[110px]"
+        aria-hidden="true"
+      />
+
+      {/* Very subtle grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+          backgroundSize: "70px 70px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-24 pt-12 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8 lg:pb-32">
+        {/* =========================================================
+            TRUST PILL
+        ========================================================== */}
+
+        {/* <div className="mb-8 flex">
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/25 bg-emerald-900/50 px-4 py-2 shadow-sm backdrop-blur-md">
+            <ShieldCheck className="h-4 w-4 text-emerald-400" />
+
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300 sm:text-xs">
+              Certified Global Synthetic Fiber Exporter
             </span>
-          </m.h1>
+          </div>
+        </div> */}
+
+        {/* =========================================================
+            MAIN HERO GRID
+        ========================================================== */}
+
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8 xl:gap-14">
+          {/* =======================================================
+              LEFT CONTENT
+          ======================================================== */}
+
+          <div className="lg:col-span-7">
+            {/* Main Heading */}
+            <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-[-0.025em] sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem]">
+              Premium Polyester Fibers for{" "}
+              <span className="text-emerald-400">
+                Global Manufacturers
+              </span>
+            </h1>
+
+            {/* Supporting Copy */}
+            <p className="mt-4 max-w-2xl text-base leading-7 text-emerald-100/75 sm:text-lg sm:leading-8">
+              Direct factory supply of high-grade{" "}
+              <span className="font-normal text-white">
+                Solid, Hollow Conjugated, and Cotton-Type
+              </span>{" "}
+              staple fibers engineered for consistent performance, reliable
+              specifications, and global textile production.
+            </p>
+
+            {/* Buyer Audience */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-emerald-200/70 sm:text-sm">
+              <span className="inline-flex items-center gap-2">
+                <Factory className="h-4 w-4 text-emerald-400" />
+                Spinning Mills
+              </span>
+
+              <span className="hidden h-1 w-1 rounded-full bg-emerald-600 sm:block" />
+
+              <span className="inline-flex items-center gap-2">
+                <BadgeCheck className="h-4 w-4 text-emerald-400" />
+                Textile Manufacturers
+              </span>
+
+              <span className="hidden h-1 w-1 rounded-full bg-emerald-600 sm:block" />
+
+              <span className="inline-flex items-center gap-2">
+                <Globe2 className="h-4 w-4 text-emerald-400" />
+                Global Buyers
+              </span>
+            </div>
+
+            {/* =====================================================
+                CTA BUTTONS
+            ====================================================== */}
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              {/* Primary CTA */}
+              <Link
+                href="#rfq-section"
+                className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-xl bg-emerald-500 px-7 text-sm font-bold text-emerald-950 shadow-xl shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 hover:shadow-emerald-400/25 sm:px-8 sm:text-base"
+              >
+                <span>Request a Quote</span>
+
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+
+              {/* Secondary CTA */}
+              <Link
+                href="/products"
+                className="group inline-flex min-h-[54px] items-center justify-center gap-2 rounded-xl border border-emerald-700/70 bg-emerald-900/30 px-7 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/70 hover:bg-emerald-900/60 sm:px-8 sm:text-base"
+              >
+                <span>Explore Our Fibers</span>
+
+                <ArrowRight className="h-4 w-4 text-emerald-400 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* =====================================================
+                METRICS
+            ====================================================== */}
+
+            <div className="mt-10 border-t border-emerald-800/60 pt-7">
+              <div className="grid grid-cols-3 gap-4 sm:max-w-xl sm:gap-8">
+                {/* Metric 1 */}
+                <div>
+                  <div className="text-2xl font-extrabold tracking-tight text-emerald-400 sm:text-3xl">
+                    100%
+                  </div>
+
+                  <div className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-emerald-100/55 sm:text-[10px]">
+                    Quality Focus
+                  </div>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="border-l border-emerald-800/60 pl-4 sm:pl-8">
+                  <div className="text-2xl font-extrabold tracking-tight text-emerald-400 sm:text-3xl">
+                    24/7
+                  </div>
+
+                  <div className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-emerald-100/55 sm:text-[10px]">
+                    Export Support
+                  </div>
+                </div>
+
+                {/* Metric 3 */}
+                <div className="border-l border-emerald-800/60 pl-4 sm:pl-8">
+                  <div className="text-2xl font-extrabold tracking-tight text-emerald-400 sm:text-3xl">
+                    Global
+                  </div>
+
+                  <div className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-emerald-100/55 sm:text-[10px]">
+                    Delivery Network
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* =======================================================
+              RIGHT HERO VISUAL (FIXED ALIGNMENT)
+          ======================================================== */}
+
+          <div className="relative lg:col-span-5 flex items-center justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]">
+            {/* Ambient emerald glow */}
+            <div
+              className="absolute inset-0 rounded-full bg-emerald-500/10 blur-[90px] pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {/* Main visual wrapper */}
+            <div className="relative w-full flex items-center justify-center">
+              <img
+                src="/heroimg.png"
+                alt="Premium polyester fibers and global export supply"
+                width={1000}
+                height={800}
+                loading="eager"
+                fetchPriority="high"
+                className="
+                  relative z-10
+                  w-full
+                  max-w-[540px]
+                  lg:max-w-none
+                  h-auto
+                  object-contain
+                  drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]
+                "
+              />
+            </div>
+
+            {/* Export badge */}
+            <div className="absolute bottom-2 left-2 sm:left-4 z-20 rounded-2xl border border-emerald-400/20 bg-emerald-950/90 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-5 sm:py-3.5">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/15">
+                  <Globe2 className="h-4 w-4 text-emerald-400" />
+                </div>
+
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-400">
+                    Export-Ready Supply
+                  </p>
+
+                  <p className="mt-0.5 text-[11px] text-emerald-100/65">
+                    Built for global textile manufacturing
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        {/* SUBTITLE FRAME - Refined Editorial Text Line */}
-        <m.p 
-          initial={isMobile ? { opacity: 1 } : { opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-sans text-[15px] sm:text-lg md:text-xl font-medium  text-white max-w-2xl mx-auto tracking-wide leading-relaxed text-center"
-        >
-          Style creates desire and Strategy creates results.
-        </m.p>
-
-        {/* ✅ ADVANCED LUXURY GLASS SEARCH CAPSULE MATRIX */}
-        <m.div 
-          initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="max-w-5xl mx-auto w-full px-2 sm:px-4"
-        >
-          {/* Main Capsule Mesh Wrapper Layout */}
-          <div className="bg-[#111111]/80 backdrop-blur-3xl border border-white/10 p-6 md:p-3 rounded-3xl md:rounded-full flex flex-col md:flex-row gap-6 md:gap-3 items-stretch md:items-center justify-between px-8 shadow-[0_30px_70px_rgba(0,0,0,0.9)] transition-all duration-300 w-full text-left">
-            
-            {/* Field 1: Location Vector */}
-            <div className="w-full md:w-auto flex-grow flex flex-col items-start px-2 md:border-r border-white/10 md:pr-6 relative group">
-              <span className="text-[9px] font-black text-[#C9A050] tracking-widest uppercase mb-1.5 block">
-                LOCATION
-              </span>
-              <div className="relative w-full flex items-center justify-between">
-                <select className="bg-transparent text-white text-xs tracking-wider uppercase outline-none cursor-pointer w-full py-1 font-bold appearance-none pr-6 z-10 font-sans">
-                  <option className="bg-[#111111] text-white">South of 635 Only</option>
-                  <option className="bg-[#111111] text-white">Highland Park</option>
-                  <option className="bg-[#111111] text-white">Preston Hollow</option>
-                  <option className="bg-[#111111] text-white">University Park</option>
-                </select>
-                <ChevronDown size={12} className="text-[#C9A050] absolute right-0 pointer-events-none z-0" />
-              </div>
-            </div>
-
-            {/* Field 2: Typology Vector */}
-            <div className="w-full md:w-auto flex-grow flex flex-col items-start px-2 md:border-r border-white/10 md:pr-6 relative group">
-              <span className="text-[9px] font-black text-[#C9A050] tracking-widest uppercase mb-1.5 block">
-                ASSET TYPE
-              </span>
-              <div className="relative w-full flex items-center justify-between">
-                <select className="bg-transparent text-white text-xs tracking-wider uppercase outline-none cursor-pointer w-full py-1 font-bold appearance-none pr-6 z-10 font-sans">
-                  <option className="bg-[#111111] text-white">All Classifications</option>
-                  <option className="bg-[#111111] text-white">Private Estates</option>
-                  <option className="bg-[#111111] text-white">Luxury Penthouses</option>
-                  <option className="bg-[#111111] text-white">Off-Market Inventory</option>
-                </select>
-                <ChevronDown size={12} className="text-[#C9A050] absolute right-0 pointer-events-none z-0" />
-              </div>
-            </div>
-
-            {/* Field 3: Capital Baseline */}
-            <div className="w-full md:w-auto flex-grow flex flex-col items-start px-2 relative group">
-              <span className="text-[9px] font-black text-[#C9A050] tracking-widest uppercase mb-1.5 block">
-                INVESTMENT BASELINE
-              </span>
-              <div className="relative w-full flex items-center justify-between">
-                <select className="bg-transparent text-white text-xs tracking-wider uppercase outline-none cursor-pointer w-full py-1 font-bold appearance-none pr-6 z-10 font-sans">
-                  <option className="bg-[#111111] text-white">Price Range ($2M+)</option>
-                  <option className="bg-[#111111] text-white">$2M - $5M</option>
-                  <option className="bg-[#111111] text-white">$5M - $10M</option>
-                  <option className="bg-[#111111] text-white">$10M - $25M+</option>
-                </select>
-                <ChevronDown size={12} className="text-[#C9A050] absolute right-0 pointer-events-none z-0" />
-              </div>
-            </div>
-
-            {/* Action Gate Trigger Button */}
-            <button className="w-full md:w-auto bg-[#C9A050] text-black text-[11px] font-black tracking-widest uppercase px-10 py-4.5 rounded-xl md:rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-xl flex items-center justify-center gap-2 shrink-0 transform-gpu active:scale-98 cursor-pointer font-sans">
-              <Search size={13} strokeWidth={3} /> Search Matrix
-            </button>
-          </div>
-
-          {/* RE-ENGINEERED ELITE UTILITY SHORTCUT CARDS */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-16 text-[11px] tracking-[0.2em] font-bold uppercase w-full items-stretch">
-            
-            {/* Card 1 */}
-            <button type="button" className="group relative w-full px-6 py-5.5 rounded-xl bg-[#111111]/90 border border-white/5 text-white flex items-center justify-center sm:justify-start gap-4 transition-all duration-500 shadow-xl transform-gpu sm:hover:-translate-y-1.5 sm:hover:border-[#C9A050]/40 overflow-hidden cursor-pointer">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#C9A050_0%,transparent_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-[0.05]" />
-              <div className="p-2.5 rounded-lg bg-black border border-white/5 text-[#C9A050] transition-colors group-hover:bg-[#C9A050] group-hover:text-black shrink-0">
-                <Search size={14} strokeWidth={2.5} />
-              </div>
-              <span className="font-sans text-white group-hover:text-[#C9A050] transition-colors duration-300 text-left tracking-widest flex items-center gap-1">
-                Search Listings <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#C9A050]" />
-              </span>
-            </button>
-            
-            {/* Card 2 */}
-            <button type="button" className="group relative w-full px-6 py-5.5 rounded-xl bg-[#111111]/90 border border-white/5 text-white flex items-center justify-center sm:justify-start gap-4 transition-all duration-500 shadow-xl transform-gpu sm:hover:-translate-y-1.5 sm:hover:border-[#C9A050]/40 overflow-hidden cursor-pointer">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#C9A050_0%,transparent_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-[0.05]" />
-              <div className="p-2.5 rounded-lg bg-black border border-white/5 text-[#C9A050] transition-colors group-hover:bg-[#C9A050] group-hover:text-black shrink-0">
-                <Calculator size={14} strokeWidth={2.5} />
-              </div>
-              <span className="font-sans text-white group-hover:text-[#C9A050] transition-colors duration-300 text-left tracking-widest flex items-center gap-1">
-                What's My Home Worth? <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#C9A050]" />
-              </span>
-            </button>
-            
-            {/* Card 3 */}
-            <button type="button" className="group relative w-full px-6 py-5.5 rounded-xl bg-[#111111]/90 border border-white/5 text-white flex items-center justify-center sm:justify-start gap-4 transition-all duration-500 shadow-xl transform-gpu sm:hover:-translate-y-1.5 sm:hover:border-[#C9A050]/40 overflow-hidden cursor-pointer">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#C9A050_0%,transparent_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-[0.05]" />
-              <div className="p-2.5 rounded-lg bg-black border border-white/5 text-[#C9A050] transition-colors group-hover:bg-[#C9A050] group-hover:text-black shrink-0">
-                <HelpCircle size={14} strokeWidth={2.5} />
-              </div>
-              <span className="font-sans text-white group-hover:text-[#C9A050] transition-colors duration-300 text-left tracking-widest flex items-center gap-1">
-                FAQ Overview <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#C9A050]" />
-              </span>
-            </button>
-
-          </div>
-        </m.div>
       </div>
+
+      {/* =========================================================
+          BOTTOM TRANSITION
+      ========================================================== */}
+
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-emerald-950 to-transparent"
+        aria-hidden="true"
+      />
     </section>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import { m } from "framer-motion";
+import { motion as m } from "framer-motion";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "12104281121"; // ✅ Strict API standard: No spaces, dashes, or brackets
-  const directMessage = encodeURIComponent("Hello Jennifer, I am requesting safe network access to the SOHIP Dallas private off-market database.");
+  const phoneNumber = "92615550000"; // ✅ Update with your actual company WhatsApp number (No spaces/dashes)
+  const directMessage = encodeURIComponent("Hello Koushiar Tejarat Team, I am inquiring about custom polyester fiber specifications and bulk export quotations.");
 
   return (
     <m.a
@@ -14,17 +14,17 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-[#0F0F0F] border border-white/10 hover:border-[#C9A050] shadow-[0_20px_50px_rgba(0,0,0,0.9)] group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-[#061614] border border-emerald-500/30 hover:border-emerald-400 shadow-[0_20px_50px_rgba(3,24,20,0.8)] group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
     >
       {/* 👑 Dynamic Mini Micro Label floating above the button */}
-      <div className="absolute -top-7 right-0 bg-[#C9A050] text-black text-[8px] font-black tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-[#C9A050]/20 font-sans shadow-md pointer-events-none select-none opacity-90 group-hover:bg-white group-hover:opacity-100 transition-all duration-300">
-        VIP·CHAT
+      <div className="absolute -top-7 right-0 bg-emerald-500 text-emerald-950 text-[8px] font-black tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-emerald-400/30 font-sans shadow-md pointer-events-none select-none opacity-90 group-hover:bg-white group-hover:opacity-100 transition-all duration-300">
+        EXPORT·CHAT
       </div>
 
       {/* 🟢 ULTRA-PREMIUM INTERACTIVE GREEN COIN ENGINE */}
       <div className="relative h-11 w-11 flex items-center justify-center shrink-0 rounded-full overflow-hidden">
-        {/* Deep luxury green gradient circle layer inside */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#128C7E] to-[#075E54] rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
+        {/* Deep luxury emerald gradient circle layer inside */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#059669] to-[#022c22] rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
         
         {/* Subtle radial inner gloss light glow reflex */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15)_0%,transparent_60%)] rounded-full pointer-events-none" />
@@ -38,8 +38,8 @@ export default function WhatsAppButton() {
         </svg>
       </div>
 
-      {/* Dynamic Gold Notification Dot Badge scaled tightly on top-right edge */}
-      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#C9A050] text-[8px] font-black font-sans text-black shadow-md border border-[#0F0F0F]">
+      {/* Dynamic Notification Dot Badge scaled tightly on top-right edge */}
+      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-400 text-[8px] font-black font-sans text-emerald-950 shadow-md border border-[#061614]">
         1
       </span>
     </m.a>

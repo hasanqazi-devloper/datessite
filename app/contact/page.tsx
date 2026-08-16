@@ -1,212 +1,200 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { Phone, Mail, Clock, Send, Award } from "lucide-react";
-import { supabase } from "@/app/lib/supabase"; // 🚀 Ensure this path points correctly to your client instance
+import { Mail, Phone, MapPin, Send, Sparkles, Clock } from "lucide-react";
 
 export default function ContactPage() {
-  const [mounted, setMounted] = useState(false);
-  const [loading, setLoading] = useState(false); // ⚡ Visual state for transmitting
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interest: "BUYING",
-    message: ""
-  });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      // 🔒 Push the dataset directly into Supabase 'leads' table nodes
-     // Website ke Contact Form wale component mein insert query aisi honi chahiye:
-const { error } = await supabase.from('leads').insert([
-  {
-    name: formData.name,
-    email: formData.email,
-    phone: formData.phone,
-    property_interest: formData.interest, // 👈 Website ka interest database ke property_interest mein map karo!
-    status: 'New'
-  }
-]);
-
-      if (error) throw error;
-
-      alert("VIP Inquiry Logged Successfully. Confidential matching engine initiated.");
-      
-      // Reset form variables after successful dynamic intercept
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        interest: "BUYING",
-        message: ""
-      });
-
-    } catch (err) {
-      console.error("Lead insertion gateway error:", err);
-      alert("Transmission intercept failed. Please contact direct operations line.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (!mounted) return <div className="min-h-screen bg-[#0A0A0A]" />;
-
   return (
-    <div className="w-full bg-[#0A0A0A] pt-40 sm:pt-52 pb-32 text-white relative z-10 overflow-hidden selection:bg-[#C9A050] selection:text-black">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C9A050]/[0.02] blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#C9A050]/[0.01] blur-[130px] rounded-full pointer-events-none z-0" />
+    <div className="bg-emerald-950 text-white min-h-screen">
 
-      <div className="max-w-[1900px] mx-auto px-4 sm:px-6 md:px-34 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start font-sans w-full">
-          
-          {/* LEFT COLUMN */}
-          <div className="lg:col-span-5 space-y-8 text-left w-full">
-            <div className="space-y-4">
-              <span className="text-[10px] tracking-[0.4em] font-black text-[#C9A050] block">
-                ( SECURE ENGAGEMENT GATEWAY )
-              </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl text-white font-black leading-none tracking-tight">
-                Connect Privately
-              </h1>
-              <p className="text-[15px] sm:text-[16px] md:text-[17px] text-white font-normal tracking-wide leading-relaxed">
-                Initiate client representation pipelines for premier residential assets south of 635. Total operational discretion guaranteed across all communication vectors.
-              </p>
-            </div>
-
-            <div className="w-12 h-[1.5px] bg-[#C9A050]/60 select-none pointer-events-none" />
-
-            <div className="space-y-4 font-mono text-xs tracking-widest text-white/80 w-full">
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#121212] border border-white/5 shadow-md">
-                <Phone size={14} className="text-[#C9A050] shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-[9px] text-[#C9A050] font-black tracking-[0.15em]">DIRECT ACQUISITIONS LINE</p>
-                  <p className="text-white font-black text-sm font-sans tracking-wide">(214) 428-1121</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#121212] border border-white/5 shadow-md">
-                <Mail size={14} className="text-[#C9A050] shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-[9px] text-[#C9A050] font-black tracking-[0.15em]">SECURE COMMUNICATIONS</p>
-                  <p className="text-white font-black text-sm font-sans tracking-wide hover:text-[#C9A050] transition-colors cursor-pointer break-all">jennifer@sohipdallas.homes</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#121212] border border-white/5 shadow-md">
-                <Clock size={14} className="text-[#C9A050] shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-[9px] text-[#C9A050] font-black tracking-[0.15em]">OPERATIONAL WINDOW</p>
-                  <p className="text-white font-bold font-sans tracking-wide">24/7 Elite Client Concierge</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl border border-dashed border-white/10 text-[10px] text-white/60 leading-relaxed space-y-2 font-sans font-medium w-full">
-              <p className="flex items-center gap-1.5 font-black text-[#C9A050] tracking-wider "><Award size={12}/> COMPLIANCE BROKERAGE MATRIX</p>
-              <p>SOHIP Dallas Homes operations are certified under JPAR Real Estate. Texas Real Estate Commission Brokerage License #0599698.</p>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: FORM */}
-          <div className="lg:col-span-7 bg-[#121212] bg-[radial-gradient(circle_at_top_left,rgba(201,160,80,0.03),transparent_45%)] border border-white/5 focus-within:border-[#C9A050]/30 p-6 sm:p-10 rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.9)] w-full transition-all duration-500">
-            <form onSubmit={handleSubmit} className="space-y-6 text-left w-full">
-              
-              <div className="space-y-1.5 w-full">
-                <label className="text-[10px] font-mono tracking-[0.2em] text-[#C9A050] block font-black">FULL INDIVIDUAL NAME</label>
-                <div className="relative flex items-center bg-[#1C1C1C] rounded-xl border border-white/10 px-4 focus-within:border-[#C9A050] transition-colors duration-300 shadow-inner">
-                  <input 
-                    type="text" 
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="ENTER YOUR LEGAL IDENTITY..." 
-                    className="bg-transparent w-full text-xs tracking-[0.15em] font-black text-white outline-none placeholder-white/50 py-4 font-sans"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono tracking-[0.2em] text-[#C9A050] block font-black">SECURE EMAIL ROUTE</label>
-                  <div className="relative flex items-center bg-[#1C1C1C] rounded-xl border border-white/10 px-4 focus-within:border-[#C9A050] transition-colors duration-300 shadow-inner">
-                    <input 
-                      type="email" 
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="E.G. INVESTOR@DOMAIN.COM" 
-                      className="bg-transparent w-full text-xs tracking-[0.15em] font-black text-white outline-none placeholder-white/50 py-4 font-sans"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono tracking-[0.2em] text-[#C9A050] block font-black">MOBILE VALIDATION SECURE</label>
-                  <div className="relative flex items-center bg-[#1C1C1C] rounded-xl border border-white/10 px-4 focus-within:border-[#C9A050] transition-colors duration-300 shadow-inner">
-                    <input 
-                      type="text" 
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="(214) 000-0000" 
-                      className="bg-transparent w-full text-xs tracking-[0.15em] font-black text-white outline-none placeholder-white/50 py-4 font-sans"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-1.5 w-full">
-                <label className="text-[10px] font-mono tracking-[0.2em] text-[#C9A050] block font-black">INTENT RESIDENTIAL VECTOR</label>
-                <div className="relative flex items-center bg-[#1C1C1C] rounded-xl border border-white/10 px-4 focus-within:border-[#C9A050] transition-colors duration-300 shadow-inner">
-                  <select 
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="bg-transparent w-full text-xs tracking-[0.15em] font-black text-white outline-none py-4 font-sans cursor-pointer appearance-none z-10"
-                  >
-                    <option value="BUYING" className="bg-[#121212] text-white font-bold">Acquiring Luxury Classification Asset</option>
-                    <option value="SELLING" className="bg-[#121212] text-white font-bold">Liquidating Capital Real Estate Property</option>
-                    <option value="STAGING" className="bg-[#121212] text-white font-bold">Initiating Signature Staging Reset Program</option>
-                    <option value="OFF-MARKET" className="bg-[#121212] text-white font-bold">Requesting Private Network Vault Access</option>
-                  </select>
-                  <div className="absolute right-4 pointer-events-none z-0 text-[#C9A050] text-xs font-bold font-sans">SELECT</div>
-                </div>
-              </div>
-
-              <div className="space-y-1.5 w-full">
-                <label className="text-[10px] font-mono tracking-[0.2em] text-[#C9A050] block font-black">CONFIDENTIAL MISSION OVERVIEW</label>
-                <div className="relative flex items-center bg-[#1C1C1C] rounded-xl border border-white/10 px-4 focus-within:border-[#C9A050] transition-colors duration-300 shadow-inner">
-                  <textarea 
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="DESCRIBE THE CORE PARAMETERS OF YOUR ACQUISITION OR ASSET INTEL NEEDS..." 
-                    className="bg-transparent w-full text-xs tracking-[0.15em] font-black text-white outline-none placeholder-white/50 py-4 font-sans resize-none leading-relaxed"
-                  />
-                </div>
-              </div>
-
-              <div className="pt-2 w-full">
-                <button 
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-[#C9A050] text-black text-[11px] font-black tracking-[0.25em] py-4.5 rounded-xl hover:bg-white hover:text-black transition-all duration-300 shadow-xl flex items-center justify-center gap-2 transform-gpu active:scale-[0.98] cursor-pointer font-sans disabled:opacity-50"
-                >
-                  <span>{loading ? "TRANSMITTING..." : "TRANSMIT INQUIRY"}</span>
-                </button>
-              </div>
-
-            </form>
-          </div>
+      {/* 1. Contact Hero Section (Dark Emerald) */}
+      <section className="relative py-24 px-6 lg:px-20 bg-[#061614] border-b border-emerald-900/40 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop"
+            alt="Global Export Contact"
+            className="w-full h-full object-cover object-center opacity-20 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061614] via-[#061614]/90 to-[#061614]/70"></div>
         </div>
-      </div>
+
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-10"></div>
+
+        <div className="max-w-7xl mx-auto relative z-20 flex flex-col justify-center min-h-[350px]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-widest w-fit mb-6 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Get In Touch
+          </div>
+
+          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
+            CONTACT OUR <span className="text-emerald-400">TEAM.</span>
+          </h1>
+
+          <p className="text-emerald-100/80 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            Ready to request custom denier specifications, sample kits, or bulk export quotations? Connect with our trade specialists today.
+          </p>
+        </div>
+      </section>
+
+      {/* 2. Main Contact Grid Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#061614] border-b border-emerald-900/40 relative text-white">
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* Left Column: Contact Information Cards */}
+            <div className="lg:col-span-5 space-y-8">
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-500/30 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Direct Communication
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                  Let's Discuss Your Fiber Requirements
+                </h2>
+                <p className="text-emerald-100/75 text-base leading-relaxed">
+                  Our team ensures swift responses for all international shipping inquiries, technical data sheets, and custom orders.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                
+                {/* Phone Card */}
+                <div className="bg-emerald-900/20 border border-emerald-500/20 p-6 rounded-3xl shadow-sm flex items-center gap-5 hover:border-emerald-500/40 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-emerald-400/70 uppercase tracking-wider">Direct Line</h4>
+                    <p className="text-base font-bold text-white mt-0.5">+92 (61) 555-FIBER</p>
+                  </div>
+                </div>
+
+                {/* Email Card */}
+                <div className="bg-emerald-900/20 border border-emerald-500/20 p-6 rounded-3xl shadow-sm flex items-center gap-5 hover:border-emerald-500/40 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-emerald-400/70 uppercase tracking-wider">Email Inquiry</h4>
+                    <p className="text-base font-bold text-white mt-0.5">sales@koushiartejarat.com</p>
+                  </div>
+                </div>
+
+                {/* Office Location Card */}
+                <div className="bg-emerald-900/20 border border-emerald-500/20 p-6 rounded-3xl shadow-sm flex items-center gap-5 hover:border-emerald-500/40 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-emerald-400/70 uppercase tracking-wider">Global Headquarters</h4>
+                    <p className="text-base font-bold text-white mt-0.5">Multan, Punjab, Pakistan</p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Business Hours Note */}
+              <div className="bg-emerald-900/20 border border-emerald-500/20 p-6 rounded-3xl flex items-center gap-4">
+                <Clock className="w-6 h-6 text-emerald-400 shrink-0" />
+                <p className="text-xs font-medium text-emerald-100/80">
+                  <strong className="text-white block mb-0.5 font-bold">Working Hours:</strong>
+                  Monday - Saturday: 9:00 AM - 6:00 PM (GMT+5)
+                </p>
+              </div>
+
+            </div>
+
+            {/* Right Column: Interactive Green Inquiry Form */}
+            <div className="lg:col-span-7">
+              <div className="bg-[#09221e] border border-emerald-500/30 p-8 sm:p-12 rounded-[2.5xl] shadow-2xl space-y-6">
+                
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-extrabold text-white tracking-tight">Send Us a Message</h3>
+                  <p className="text-sm text-emerald-100/70">Fill out the form below and our export department will get back to you within 24 hours.</p>
+                </div>
+
+                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-300 uppercase tracking-wider">Full Name</label>
+                      <input 
+                        type="text" 
+                        placeholder="e.g. John Doe" 
+                        className="w-full bg-emerald-950/60 border border-emerald-500/30 px-4 py-3.5 rounded-xl text-sm text-white placeholder-emerald-700/60 focus:outline-none focus:border-emerald-400 focus:bg-emerald-950 transition-all"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-300 uppercase tracking-wider">Business Email</label>
+                      <input 
+                        type="email" 
+                        placeholder="john@company.com" 
+                        className="w-full bg-emerald-950/60 border border-emerald-500/30 px-4 py-3.5 rounded-xl text-sm text-white placeholder-emerald-700/60 focus:outline-none focus:border-emerald-400 focus:bg-emerald-950 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-300 uppercase tracking-wider">Phone Number</label>
+                      <input 
+                        type="text" 
+                        placeholder="+1 (555) 000-0000" 
+                        className="w-full bg-emerald-950/60 border border-emerald-500/30 px-4 py-3.5 rounded-xl text-sm text-white placeholder-emerald-700/60 focus:outline-none focus:border-emerald-400 focus:bg-emerald-950 transition-all"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-300 uppercase tracking-wider">Product / Interest</label>
+                      <select className="w-full bg-emerald-950/60 border border-emerald-500/30 px-4 py-3.5 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-400 focus:bg-emerald-950 transition-all">
+                        <option className="bg-emerald-950 text-white">Solid Polyester Fiber</option>
+                        <option className="bg-emerald-950 text-white">Hollow Conjugated Fiber (HCF)</option>
+                        <option className="bg-emerald-950 text-white">Cotton-Type Polyester Fiber</option>
+                        <option className="bg-emerald-950 text-white">Custom Denier Order</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-emerald-300 uppercase tracking-wider">Message / Specifications</label>
+                    <textarea 
+                      rows={4} 
+                      placeholder="Please specify estimated quantity, destination port, or required technical parameters..." 
+                      className="w-full bg-emerald-950/60 border border-emerald-500/30 px-4 py-3.5 rounded-xl text-sm text-white placeholder-emerald-700/60 focus:outline-none focus:border-emerald-400 focus:bg-emerald-950 transition-all resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    className="w-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-extrabold py-4 px-8 rounded-xl transition-all shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Submit Inquiry</span>
+                    <Send className="w-4 h-4 text-emerald-950" />
+                  </button>
+
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. Global Shipping Banner */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#061614] text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-700/50 inline-block">
+            Worldwide Export
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Receive Your Sample Kit?
+          </h2>
+          <p className="text-emerald-100/70 text-base sm:text-lg max-w-xl mx-auto">
+            We ship standard testing sample packages globally to verified spinning mills and manufacturing plants.
+          </p>
+        </div>
+      </section>
+
     </div>
   );
 }

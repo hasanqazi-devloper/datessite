@@ -12,13 +12,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SOHIP Dallas Homes",
-  description: "Bespoke Property Intelligence & Luxury Presentation Matrix",
+ title: "Koushiar Tejarat | Global Fiber Export",
+description: "Bespoke Synthetic Fiber Intelligence & International Trade Presentation Matrix",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path
-    shortcut: "/sohip-dallas-logo-main.png", // public/icon.png (Optional)
-    apple: "/apple-touch-icon.png", // public/apple-touch-icon.png Apple devices ke liye (Optional)
+    shortcut: "/fav.png", // public/icon.png (Optional)
   },
 };
 

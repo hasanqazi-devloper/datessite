@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   
   // Ye line 'out' folder banaye gi
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
