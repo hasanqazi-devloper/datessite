@@ -1,256 +1,250 @@
-"use client"
-import { useState } from 'react';
-import { Layers, Cpu, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+"use client";
 
-const productsData = [
-  {
-    id: 1,
-    category: 'solid',
-    title: 'Solid Polyester Staple Fiber',
-    badge: 'Industrial Spinning',
-    description: 'Engineered for high-speed spinning, geo-textiles, and robust automotive needle-punch non-wovens providing exceptional structural integrity.',
-    specs: ['Denier Range: 1.2D to 15D', 'Cut Length: 32mm to 64mm', 'High Tenacity & Low Shrinkage'],
-    image: 'https://images.unsplash.com/photo-1675176785803-bffbbb0cd2f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kdXN0cmlhbCUyMGZpYmVyJTIwbWFudWZhY3R1cmluZyUyMG1hY2hpbmV8ZW58MHx8MHx8fDA%3D',
-    icon: Layers,
-  },
-  {
-    id: 2,
-    category: 'hollow',
-    title: 'Hollow Conjugated Fiber (HCF)',
-    badge: 'Home Furnishing & Filling',
-    description: 'Characterized by superior resilience, bulkiness, and thermal insulation. Ideal for premium home fillings, duvets, pillows, and winter apparel.',
-    specs: ['Siliconized & Non-Siliconized', 'Exceptional Loft & Recovery', 'Soft Hand Feel & Durability'],
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvH-lZWvNwpzjzwds_RcwLTHP30HCCpJiJTYpIBrJnpLHMx2IFUYZTnNsf&s=10',
-    icon: Cpu,
-  },
-  {
-    id: 3,
-    category: 'cotton',
-    title: 'Cotton-Type Polyester Fiber',
-    badge: 'Textile Spinning Mills',
-    description: 'Blends seamlessly with natural cotton fibers in spinning mills, offering enhanced yarn strength, uniform twist, and reduced breakages.',
-    specs: ['Fine Denier: 1.2D - 1.4D', 'Perfect Cotton Blend Ratio', 'Controlled Oil Pickup'],
-    image: 'https://i.etsystatic.com/6897754/r/il/5d00fd/3629442618/il_fullxfull.3629442618_6o0f.jpg',
-    icon: Sparkles,
-  },
-  {
-    id: 4,
-    category: 'solid',
-    title: 'Super Bright Solid Fiber',
-    badge: 'Specialty Non-Wovens',
-    description: 'Glossy finish solid fibers optimized for decorative carpets, specialized displays, and high-luster industrial felt applications.',
-    specs: ['Denier Range: 3D to 6D', 'Cut Length: 51mm', 'High Luster Finish'],
-    image: 'https://images.unsplash.com/photo-1782828152662-cb3ba2eff30d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRleHRpbGUlMjBzcGlubmluZyUyMG1pbGwlMjBtYWNoaW5lcnl8ZW58MHx8MHx8fDA%3D',
-    icon: Layers,
-  },
-  {
-    id: 5,
-    category: 'hollow',
-    title: 'Slick Hollow Conjugated Fiber',
-    badge: 'Premium Bedding',
-    description: 'Extra slippery surface treatment designed for high-end filling where down-like luxury and fluid movement are required.',
-    specs: ['Denier Range: 7D / 15D', 'Cut Length: 64mm', 'Advanced Slick Coating'],
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpJmi_lAcoO-eNI14WdkA_XcCrnEUNoTImUaAqy8Es5Yfv4aziE8p1Oom&s=10',
-    icon: Cpu,
-  }
-];
-export default function HighEndProductGallery() {
-  const [activeTab, setActiveTab] = useState('all');
+import React, { useState } from "react";
+import Link from "next/link";
+import {
+  ShieldCheck,
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  Package,
+  Scale,
+  Award
+} from "lucide-react";
 
-  const filteredProducts = activeTab === 'all' 
-    ? productsData 
-    : productsData.filter(item => item.category === activeTab);
+export default function ProductsPage() {
+  const [activeTab, setActiveTab] = useState("all");
 
+  const products = [
+    {
+      id: "saffron",
+      category: "saffron",
+      title: "Super Negin Saffron",
+      subtitle: "Grade A+ Export Quality",
+      image: "https://images.pexels.com/photos/10487658/pexels-photo-10487658.jpeg?_gl=1*1w5qkci*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MzE0OTEkbzIkZzEkdDE3ODg0MzE1MjckajI0JGwwJGgw",
+      description: "100% pure, long-thread saffron with deep crimson color and guaranteed high Crocin power.",
+      specs: [
+        "Crocin Level: 250+ (High Color)",
+        "Moisture: Under 7%",
+        "Pure All-Red Threads (No Yellow Waste)",
+        "Origin: Isfahan, Iran"
+      ],
+      moq: "1 KG"
+    },
+    {
+      id: "rosebuds",
+      category: "rosebuds",
+      title: "Organic Damask Rosebuds",
+      subtitle: "Dried Culinary & Essential Grade",
+      image: "https://images.pexels.com/photos/38946088/pexels-photo-38946088.jpeg?_gl=1*1u9lu32*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MjI2MDAkbzEkZzEkdDE3ODg0MjI2MTUkajQ1JGwwJGgw",
+      description: "Hand-picked closed rosebuds preserved carefully for intense floral aroma and natural essential oils.",
+      specs: [
+        "Color: Deep Pink / Crimson",
+        "Purity: 99.5% Whole Buds",
+        "Drying Method: Natural Air Dehydrated",
+        "Origin: Isfahan, Iran"
+      ],
+      moq: "50 KG"
+    },
+    {
+      id: "barberry",
+      category: "barberry",
+      title: "Puffy Dried Barberry (Zereshk)",
+      subtitle: "Seedless Premium Culinary Grade",
+       image: "https://images.pexels.com/photos/30688213/pexels-photo-30688213.jpeg?_gl=1*vfb6ad*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MjI2MDAkbzEkZzEkdDE3ODg0MjI4MzMkajYwJGwwJGgw",
+
+      description: "Bright ruby-red, seedless dried barberries with a natural sweet and sour flavor balance.",
+      specs: [
+        "Purity: Seedless & Cleaned",
+        "Texture: Soft & Puffy",
+        "Moisture: Controlled 14-16%",
+        "Origin: Isfahan, Iran"
+      ],
+      moq: "100 KG"
+    }
+  ];
+
+  const filteredProducts = activeTab === "all"
+    ? products
+    : products.filter(p => p.category === activeTab);
 
   return (
-    <div className="bg-emerald-950 text-white min-h-screen">
+    <div className="bg-[#121212] text-white min-h-screen">
 
-      {/* 1. Products Hero Section (Dark Emerald with Industrial Background) */}
-      <section className="relative py-24 px-6 lg:px-20 bg-[#061614] border-b border-emerald-900/40 overflow-hidden">
+      {/* HERO SECTION (SAME BRAND TEMPLATE) */}
+      <section className="relative py-28 px-6 lg:px-20 bg-[#121212] border-b border-[#D4AF37]/20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1920&auto=format&fit=crop"
-            alt="Synthetic Fiber Manufacturing"
+            src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=1920&auto=format&fit=crop"
+            alt="Sadra Saleh Products"
             className="w-full h-full object-cover object-center opacity-20 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061614] via-[#061614]/90 to-[#061614]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/90 to-[#121212]/70"></div>
         </div>
 
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-10"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#6B1224]/20 rounded-full blur-[120px] pointer-events-none z-10" />
 
-        <div className="max-w-7xl mx-auto relative z-20 flex flex-col justify-center min-h-[400px]">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-widest w-fit mb-6 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            Koushiar Tejarat Portfolio
+        <div className="max-w-7xl mx-auto relative z-20 flex flex-col justify-center min-h-[380px]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A1A1A] border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-widest w-fit mb-6 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
+            Export Catalog
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            OUR <span className="text-emerald-400">PRODUCTS.</span>
+          <h1 className="text-5xl sm:text-7xl font-serif font-extrabold tracking-tight text-white leading-tight mb-6">
+            OUR <span className="text-[#D4AF37]">PRODUCTS.</span>
           </h1>
 
-          <p className="text-emerald-100/80 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Engineering high-performance Solid, Hollow Conjugated, and Cotton-Type Polyester Staple Fibers designed for elite industrial spinning and non-woven applications worldwide.
+          <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            Direct wholesale supply of authentic Isfahan Super Negin Saffron, Damask Rosebuds, and Dried Barberry with ISO-certified lab reports.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#catalog" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-emerald-950/50 cursor-pointer">
-              Explore Catalog
+          <div className="mt-8">
+            <a href="#catalog" className="inline-block bg-gradient-to-r from-[#D4AF37] to-[#B8952D] hover:opacity-90 text-[#121212] font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-[#D4AF37]/10 uppercase tracking-wider text-xs">
+              View Wholesale Catalog
             </a>
-            <Link href="/contact" className="inline-block bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-200 font-bold py-4 px-8 rounded-xl border border-emerald-500/30 transition-all backdrop-blur-md">
-              Request Sample Kit
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Comprehensive Portfolio Section (Soft Light Theme) */}
-     <section id="catalog" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f4f7f6] border-b border-gray-200/60 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-16">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-100/70 px-4 py-1.5 rounded-full border border-emerald-200/60 inline-block shadow-sm">
-            Comprehensive Portfolio
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
-            Industrial-Grade Polyester Staple Fibers
-          </h2>
-          <p className="text-gray-600 text-base leading-relaxed">
-            Manufactured with strict adherence to global specifications, offering optimal tenacity, denier uniformity, and superior carding performance.
-          </p>
-        </div>
+      {/* SECTION 1: FILTER TABS & PRODUCT CARDS */}
+      <section id="catalog" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-12">
 
-        {/* Filter Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-3">
-          {[
-            { id: 'all', label: 'All Products' },
-            { id: 'solid', label: 'Solid Fibers' },
-            { id: 'hollow', label: 'Hollow Conjugated' },
-            { id: 'cotton', label: 'Cotton-Type' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer shadow-sm ${
-                activeTab === tab.id
-                  ? 'bg-emerald-900 text-white shadow-emerald-950/20'
-                  : 'bg-white text-gray-700 hover:bg-emerald-50 border border-gray-200/80'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => {
-            const IconComponent = product.icon;
-            return (
-              <div 
-                key={product.id}
-                className="bg-white border border-gray-200/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {[
+              { id: "all", label: "All Items" },
+              { id: "saffron", label: "Super Negin Saffron" },
+              { id: "rosebuds", label: "Damask Rosebuds" },
+              { id: "barberry", label: "Barberry (Zereshk)" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all border ${activeTab === tab.id
+                    ? "bg-[#D4AF37] text-[#121212] border-[#D4AF37]"
+                    : "bg-[#1A1A1A] text-gray-300 border-[#D4AF37]/20 hover:border-[#D4AF37]/60"
+                  }`}
               >
-                {/* Thumbnail Header with Image Overlay */}
-                <div className="relative h-52 overflow-hidden bg-gray-900">
-                  <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent"></div>
-                  <span className="absolute top-4 left-4 bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
-                    {product.badge}
-                  </span>
-                </div>
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-                {/* Card Content Body */}
-                <div className="p-8 space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center shadow-sm">
-                      <IconComponent className="w-6 h-6" />
+          {/* Product Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-3xl overflow-hidden hover:border-[#D4AF37]/60 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="h-56 overflow-hidden relative">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute top-4 right-4 bg-[#121212]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-bold uppercase tracking-wider">
+                      MOQ: {product.moq}
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">{product.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                  </div>
+
+                  <div className="p-6 space-y-4">
+                    <div>
+                      <span className="text-[11px] font-bold text-[#D4AF37] uppercase tracking-widest">
+                        {product.subtitle}
+                      </span>
+                      <h3 className="text-2xl font-serif font-bold text-white mt-1">
+                        {product.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-gray-300 leading-relaxed">
                       {product.description}
                     </p>
-                    <ul className="space-y-2.5 pt-2 text-sm text-gray-700 font-medium border-t border-gray-100">
-                      {product.specs.map((spec, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span>{spec}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
 
-                  {/* Card Footer CTA */}
-                  <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
-                    <Link 
-                      href="/contact" 
-                      className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 hover:text-emerald-950 transition-colors group-hover:translate-x-1 duration-200"
-                    >
-                      Request Quotation <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <div className="space-y-2 pt-2 border-t border-[#D4AF37]/10">
+                      {product.specs.map((spec, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-gray-300">
+                          <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                          <span>{spec}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/#rfq-section"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8952D] text-[#121212] font-bold py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider hover:opacity-90 transition-all"
+                  >
+                    <span>Request Price Quote</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
+
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* SECTION 2: B2B EXPORT SPECIFICATIONS TABLE (WARM COCOA TONE) */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6] text-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-10">
 
-      {/* 3. Technical Specifications Table Section (Dark Emerald Theme) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#061614] border-b border-emerald-900/60 text-white">
-        <div className="max-w-7xl mx-auto space-y-12">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-700/50 inline-block">
-              Precision Metrics
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#6B1224] bg-[#6B1224]/10 px-4 py-1.5 rounded-full border border-[#6B1224]/20 inline-block">
+              Technical Details
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Standard Export Specifications
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A221E]">
+              B2B Export Specification Chart
             </h2>
-            <p className="text-emerald-100/70 text-base">
-              Every container is packed under strict hydraulic bale pressing ensuring standard weight and moisture control.
+            <p className="text-[#4A3E3D] text-sm">
+              Standard technical parameters verified for commercial import and customs clearance.
             </p>
           </div>
 
-          <div className="overflow-x-auto bg-[#0b221e]/80 border border-emerald-500/20 rounded-3xl p-6 backdrop-blur-md">
-            <table className="w-full text-left border-collapse">
+          <div className="overflow-x-auto bg-[#FAF6F0] rounded-2xl border border-[#D4AF37]/30 shadow-sm p-4">
+            <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-emerald-900/60 text-emerald-300 text-sm uppercase tracking-wider">
-                  <th className="py-4 px-6">Fiber Type</th>
-                  <th className="py-4 px-6">Denier (D)</th>
-                  <th className="py-4 px-6">Cut Length</th>
-                  <th className="py-4 px-6">Lustre / Finish</th>
-                  <th className="py-4 px-6">Primary Application</th>
+                <tr className="border-b border-[#D4AF37]/30 text-[#2A221E] font-serif font-bold">
+                  <th className="p-4">Product Name</th>
+                  <th className="p-4">Quality Grade</th>
+                  <th className="p-4">Purity Level</th>
+                  <th className="p-4">Moisture Limit</th>
+                  <th className="p-4">Shelf Life</th>
+                  <th className="p-4">Min Order (MOQ)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-emerald-900/40 text-sm text-emerald-100/80">
+              <tbody className="divide-y divide-[#D4AF37]/20 text-[#4A3E3D]">
                 <tr>
-                  <td className="py-4 px-6 font-bold text-white">Solid PSFD</td>
-                  <td className="py-4 px-6">1.2D - 15D</td>
-                  <td className="py-4 px-6">32mm / 51mm / 64mm</td>
-                  <td className="py-4 px-6">Semi-Dull / Bright</td>
-                  <td className="py-4 px-6">Non-wovens, Geo-textiles</td>
+                  <td className="p-4 font-bold text-[#2A221E]">Super Negin Saffron</td>
+                  <td className="p-4">Grade A+ (ISO 3632-1)</td>
+                  <td className="p-4">99.8% Pure Threads</td>
+                  <td className="p-4">&lt; 7.0%</td>
+                  <td className="p-4">3 Years</td>
+                  <td className="p-4 font-bold text-[#6B1224]">1 KG</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-bold text-white">Hollow Conjugated</td>
-                  <td className="py-4 px-6">3D, 7D, 15D</td>
-                  <td className="py-4 px-6">64mm</td>
-                  <td className="py-4 px-6">Siliconized / Slick</td>
-                  <td className="py-4 px-6">Bedding, Pillows, Toys</td>
+                  <td className="p-4 font-bold text-[#2A221E]">Damask Rosebuds</td>
+                  <td className="p-4">Hand-Picked Closed Buds</td>
+                  <td className="p-4">99.5% Whole Buds</td>
+                  <td className="p-4">&lt; 8.5%</td>
+                  <td className="p-4">2 Years</td>
+                  <td className="p-4 font-bold text-[#6B1224]">50 KG</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-bold text-white">Cotton Type</td>
-                  <td className="py-4 px-6">1.2D - 1.4D</td>
-                  <td className="py-4 px-6">38mm</td>
-                  <td className="py-4 px-6">Semi-Dull</td>
-                  <td className="py-4 px-6">Ring Spinning Blends</td>
+                  <td className="p-4 font-bold text-[#2A221E]">Dried Barberry (Zereshk)</td>
+                  <td className="p-4">Puffy Seedless Grade</td>
+                  <td className="p-4">99.0% Cleaned</td>
+                  <td className="p-4">14.0% - 16.0%</td>
+                  <td className="p-4">18 Months</td>
+                  <td className="p-4 font-bold text-[#6B1224]">100 KG</td>
                 </tr>
               </tbody>
             </table>
@@ -259,23 +253,70 @@ export default function HighEndProductGallery() {
         </div>
       </section>
 
-      {/* 4. Call to Action Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#061614] text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#0b221e] to-[#071916] border border-emerald-500/30 p-12 rounded-3xl shadow-2xl relative z-10 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-700/50 inline-block">
-            Custom Orders
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Need Specific Denier or Custom Cut Lengths?
-          </h2>
-          <p className="text-emerald-100/70 text-base sm:text-lg max-w-xl mx-auto">
-            Our R&D and manufacturing plant can formulate bespoke fiber specifications tailored directly to your production line requirements.
-          </p>
-          <div className="pt-4">
-            <Link href="/contact" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-extrabold py-4 px-10 rounded-xl transition-all shadow-lg shadow-emerald-950/50">
-              Speak With Our Engineers
-            </Link>
+      {/* SECTION 3: BULK PACKAGING OPTIONS */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-12">
+
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 inline-block">
+              Custom Packaging
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+              Export-Ready Packaging Solutions
+            </h2>
+            <p className="text-gray-400 text-sm">
+              We offer both bulk wholesale containers and custom white-label packaging for distributors.
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 space-y-3">
+              <Package className="w-8 h-8 text-[#D4AF37]" />
+              <h4 className="font-serif font-bold text-lg text-white">Luxury Metal Tins</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Ideal for 1g, 5g, 10g, and 25g saffron retail packs with custom brand logo printing.
+              </p>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 space-y-3">
+              <Scale className="w-8 h-8 text-[#D4AF37]" />
+              <h4 className="font-serif font-bold text-lg text-white">Air-Sealed Bulk Tins</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                1 KG and 5 KG industrial tins designed for safe air-freight without moisture exposure.
+              </p>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 space-y-3">
+              <Award className="w-8 h-8 text-[#D4AF37]" />
+              <h4 className="font-serif font-bold text-lg text-white">Carton & Vacuum Bags</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                10 KG to 25 KG multi-layer vacuum bags for bulk Rosebuds and Barberry shipments.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 4: CALL TO ACTION (CTA STRIP) */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#121212]">
+        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#1A1A1A] via-[#22181C] to-[#1A1A1A] border border-[#D4AF37]/40 p-10 rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-2 text-center md:text-left">
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Need Product Samples or Custom Pricing?
+            </h3>
+            <p className="text-xs text-gray-300">
+              Send us your target quantity and port destination for an instant quotation.
+            </p>
+          </div>
+
+          <Link
+            href="/#rfq-section"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B8952D] text-[#121212] px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all hover:opacity-90 shrink-0"
+          >
+            <span>Request Product RFQ</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 

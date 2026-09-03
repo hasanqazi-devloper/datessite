@@ -1,208 +1,314 @@
-"tsx"
-import { CheckCircle2, ShieldCheck, Globe2,Target, Award,Lightbulb, Factory, ArrowRight } from "lucide-react";
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import { 
+  Sprout, 
+  FlaskConical, 
+  PackageCheck, 
+  Truck, 
+  ShieldCheck, 
+  Award, 
+  Globe2, 
+  CheckCircle2, 
+  ArrowRight,
+  Sparkles
+} from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="bg-emerald-950 text-white min-h-screen">
+    <div className="bg-[#121212] text-white min-h-screen">
 
-      {/* 1. Page Hero Section */}
-      <section className="relative py-24 px-6 lg:px-20 bg-[#061614] border-b border-emerald-900/40 overflow-hidden">
-
-        {/* Industrial Background Image with Dark Overlay */}
+      {/* HERO SECTION */}
+      <section className="relative py-28 px-6 lg:px-20 bg-[#121212] border-b border-[#D4AF37]/20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop"
-            alt="Industrial Manufacturing Background"
+            src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=1920&auto=format&fit=crop"
+            alt="Isfahan Heritage Harvest"
             className="w-full h-full object-cover object-center opacity-20 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061614] via-[#061614]/90 to-[#061614]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/90 to-[#121212]/70"></div>
         </div>
 
-        {/* Background Glow Effect - Subtle Emerald Orb */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-10"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#6B1224]/20 rounded-full blur-[120px] pointer-events-none z-10" />
 
-        <div className="max-w-7xl mx-auto relative z-20 flex flex-col justify-center min-h-[400px]">
-
-          {/* Top Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-widest w-fit mb-6 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            About Koushiar Tejarat
+        <div className="max-w-7xl mx-auto relative z-20 flex flex-col justify-center min-h-[380px]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A1A1A] border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-widest w-fit mb-6 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
+            About Sadra Saleh
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            ABOUT <span className="text-emerald-400">US.</span>
+          <h1 className="text-5xl sm:text-7xl font-serif font-extrabold tracking-tight text-white leading-tight mb-6">
+            ABOUT <span className="text-[#D4AF37]">US.</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-emerald-100/80 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            We create powerful industrial experiences through innovative manufacturing, premium quality control, and strategic export solutions that help global manufacturers grow and succeed.
+          <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            Direct producers of pure Isfahan Saffron, Damask Rosebuds, and Barberry. Built on 100 years of traditional farming and high-quality export standards.
           </p>
 
-          {/* CTA Button */}
-          <div className="mt-10">
-            <a href="#identity" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-emerald-950/50 cursor-pointer">
-              Discover Our Story
+          <div className="mt-8">
+            <a href="#heritage" className="inline-block bg-gradient-to-r from-[#D4AF37] to-[#B8952D] hover:opacity-90 text-[#121212] font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-[#D4AF37]/10 uppercase tracking-wider text-xs">
+              Explore Our History
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 1: 100-YEAR HERITAGE & ORIGINS */}
+      <section id="heritage" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6] text-[#121212] border-b border-[#D4AF37]/20 relative">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-6 space-y-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#6B1224] bg-[#6B1224]/10 px-4 py-1.5 rounded-full border border-[#6B1224]/20 inline-block">
+              Est. 1924 • Isfahan, Iran
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A221E] leading-tight">
+              100 Years of Real Farming & Trusted Traditions
+            </h2>
+            <p className="text-[#4A3E3D] text-base leading-relaxed">
+              Our journey started in 1924 in the famous agricultural lands of Isfahan. For a whole century, our family has focused on growing pure Saffron, fragrant Rosebuds, and fresh Barberries without chemical shortcuts.
+            </p>
+            <p className="text-[#4A3E3D] text-base leading-relaxed">
+              We care for our soil naturally. By avoiding harsh pesticides and harvesting every single crop by hand at sunrise, we make sure our spices retain their natural color, deep aroma, and full health benefits.
+            </p>
+          </div>
+
+          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 shadow-sm">
+              <h3 className="text-3xl font-serif font-bold text-[#6B1224] mb-1">100+</h3>
+              <p className="text-xs font-bold text-[#2A221E] uppercase tracking-wider">Years of Legacy</p>
+              <p className="text-xs text-gray-600 mt-2">Passed down through generations in Isfahan.</p>
+            </div>
+
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 shadow-sm">
+              <h3 className="text-3xl font-serif font-bold text-[#D4AF37] mb-1">100%</h3>
+              <p className="text-xs font-bold text-[#2A221E] uppercase tracking-wider">Organic Care</p>
+              <p className="text-xs text-gray-600 mt-2">Hand-picked crops with zero synthetic chemicals.</p>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* 2. Our Story & Legacy Section */}
-   <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f4f7f6] border-b border-gray-200/60 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        
-        {/* Left Column: Text Content */}
-        <div className="lg:col-span-6 space-y-6 text-left">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-100/70 px-4 py-1.5 rounded-full border border-emerald-200/60 inline-block shadow-sm">
-            Our Legacy & Evolution
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight">
-            Built on Decades of Precision Manufacturing & Export Mastery
-          </h2>
-          <p className="text-gray-700 leading-relaxed text-base">
-            Founded with a clear vision to revolutionize synthetic fiber supply chains, Koushiar Tejarat has grown from a regional producer into a powerhouse global exporter. We specialize in engineering high-performance Solid, Hollow Conjugated, and Cotton-Type Polyester Staple Fibers tailored for industrial spinning, geo-textiles, automotive upholstery, and home furnishing applications.
-          </p>
-          <p className="text-gray-700 leading-relaxed text-base">
-            Our state-of-the-art production facilities utilize advanced recycling and virgin polymer processing technologies, ensuring strict compliance with international denier, cut length, and tenacity standards.
-          </p>
-        </div>
-
-        {/* Right Column: Clean White Cards */}
-        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="bg-white border border-gray-200/80 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <Factory className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900">Advanced Production</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Cutting-edge extrusion and crimping lines engineered for uniform fiber characteristics.
+      {/* SECTION 2: CULTIVATION TO EXPORT PIPELINE (4 STEPS) */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 inline-block">
+              How We Work
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+              From Our Fields to Your Port
+            </h2>
+            <p className="text-gray-400 text-sm">
+              Our simple 4-step process guarantees fresh, high-grade spices for every wholesale order.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-200/80 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-4 sm:mt-8">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <Globe2 className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#6B1224] text-[#D4AF37] rounded-xl flex items-center justify-center font-bold text-lg">
+                1
+              </div>
+              <h3 className="text-lg font-serif font-bold text-white">Sunrise Harvesting</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Farmers hand-pick delicate saffron threads and rosebuds early in the morning to protect their natural oil content.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-gray-900">Global Reach</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Seamless container dispatch and robust logistics networks serving international ports worldwide.
+
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#6B1224] text-[#D4AF37] rounded-xl flex items-center justify-center font-bold text-lg">
+                2
+              </div>
+              <h3 className="text-lg font-serif font-bold text-white">Lab Testing</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Each batch is tested in a certified lab to verify Crocin (color strength), taste, aroma, and absolute purity.
+              </p>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#6B1224] text-[#D4AF37] rounded-xl flex items-center justify-center font-bold text-lg">
+                3
+              </div>
+              <h3 className="text-lg font-serif font-bold text-white">Sealed Packaging</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Goods are packed in food-grade, moisture-proof tins or vacuum containers to prevent any damage during transit.
+              </p>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#6B1224] text-[#D4AF37] rounded-xl flex items-center justify-center font-bold text-lg">
+                4
+              </div>
+              <h3 className="text-lg font-serif font-bold text-white">GCC Delivery</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Direct air cargo routes to Dubai, Riyadh, Jeddah, and European ports with fast customs clearance support.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 3: LAB CERTIFICATIONS & ISO STANDARDS */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6] text-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#6B1224] bg-[#6B1224]/10 px-4 py-1.5 rounded-full border border-[#6B1224]/20 inline-block">
+              Guaranteed Quality
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A221E]">
+              Lab Tested & Internationally Certified
+            </h2>
+            <p className="text-[#4A3E3D] text-sm">
+              We provide full lab analysis documents with every shipment so you always know what you are buying.
             </p>
           </div>
-        </div>
 
-      </div>
-    </section>
-
-      {/* 3. Mission & Vision Section */}
-   <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#061614] border-b border-emerald-900/60">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div className="bg-[#0b221e]/80 border border-emerald-500/20 p-8 rounded-3xl space-y-4 backdrop-blur-md">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-500/30">
-            <Target className="w-6 h-6" />
-          </div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-700/50 inline-block">
-            Our Core Mission
-          </span>
-          <h3 className="text-2xl font-bold text-white">Driving Industrial Success Worldwide</h3>
-          <p className="text-emerald-100/70 text-sm leading-relaxed">
-            To deliver consistent, premium-grade polyester staple fibers that elevate the structural strength and performance of non-woven and textile products globally, while maintaining absolute transparency and cost efficiency for our manufacturing partners.
-          </p>
-        </div>
-
-        <div className="bg-[#0b221e]/80 border border-emerald-500/20 p-8 rounded-3xl space-y-4 backdrop-blur-md">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-500/30">
-            <Lightbulb className="w-6 h-6" />
-          </div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-700/50 inline-block">
-            Our Long-Term Vision
-          </span>
-          <h3 className="text-2xl font-bold text-white">Setting the Benchmark in Fiber Export</h3>
-          <p className="text-emerald-100/70 text-sm leading-relaxed">
-            To be recognized globally as the most dependable and quality-obsessed polyester fiber exporter, pioneering sustainable manufacturing practices and fostering lifelong commercial relationships across borders.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-      {/* 4. Quality Standards & Assurance */}
-<section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f4f7f6] border-b border-gray-200/60">
-      <div className="max-w-7xl mx-auto space-y-12">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-100/70 px-4 py-1.5 rounded-full border border-emerald-200/60 inline-block shadow-sm">
-            Uncompromising Standards
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
-            Strict Quality Control Protocols
-          </h2>
-          <p className="text-gray-600 text-base leading-relaxed">
-            Every batch undergoes rigorous lab testing before container sealing to guarantee optimal manufacturing output.
-          </p>
-        </div>
-
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-gray-200/80 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 space-y-2">
+              <ShieldCheck className="w-8 h-8 text-[#6B1224]" />
+              <h4 className="font-serif font-bold text-lg text-[#2A221E]">Crocin Level 250+</h4>
+              <p className="text-xs text-[#4A3E3D]">Guarantees deep, bright red coloring power in every gram.</p>
             </div>
-            <h4 className="font-bold text-lg text-gray-900">Denier Uniformity</h4>
-            <p className="text-sm text-gray-600 leading-relaxed">Exact fineness parameters maintained across every single bale for stable processing.</p>
+
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 space-y-2">
+              <FlaskConical className="w-8 h-8 text-[#6B1224]" />
+              <h4 className="font-serif font-bold text-lg text-[#2A221E]">ISO 22000 Ready</h4>
+              <p className="text-xs text-[#4A3E3D]">Tested for food safety, zero additives, and zero artificial colors.</p>
+            </div>
+
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 space-y-2">
+              <Award className="w-8 h-8 text-[#6B1224]" />
+              <h4 className="font-serif font-bold text-lg text-[#2A221E]">Halal Certified</h4>
+              <p className="text-xs text-[#4A3E3D]">100% natural processing complying with all Middle East import rules.</p>
+            </div>
+
+            <div className="bg-[#FAF6F0] p-6 rounded-2xl border border-[#D4AF37]/30 space-y-2">
+              <PackageCheck className="w-8 h-8 text-[#6B1224]" />
+              <h4 className="font-serif font-bold text-lg text-[#2A221E]">Batch Tracking</h4>
+              <p className="text-xs text-[#4A3E3D]">Every container comes with its own farm origin and lab report number.</p>
+            </div>
           </div>
 
-          <div className="bg-white border border-gray-200/80 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-lg text-gray-900">Cut Length Accuracy</h4>
-            <p className="text-sm text-gray-600 leading-relaxed">Precision cutting machinery ensures zero variance in staple fiber length.</p>
-          </div>
-
-          <div className="bg-white border border-gray-200/80 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-lg text-gray-900">Optimal Oil Pickup</h4>
-            <p className="text-sm text-gray-600 leading-relaxed">Balanced lubricant application for smooth carding and friction reduction.</p>
-          </div>
-
-          <div className="bg-white border border-gray-200/80 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-lg text-gray-900">High Tenacity</h4>
-            <p className="text-sm text-gray-600 leading-relaxed">Enhanced tensile strength designed for demanding industrial spinning requirements.</p>
-          </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* SECTION 4: CORE PRODUCT VALUES */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 inline-block">
+              Why Choose Sadra Saleh
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+              What Makes Our Products Special?
+            </h2>
+          </div>
 
-      {/* 5. Call to Action / RFQ Bridge */}
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#061614] text-center relative overflow-hidden">
-      <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#0b221e] to-[#071916] border border-emerald-500/30 p-12 rounded-3xl shadow-2xl relative z-10 space-y-6">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-700/50 inline-block">
-          Partner With Us
-        </span>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Ready to Secure Premium Fiber Supply for Your Mill?
-        </h2>
-        <p className="text-emerald-100/70 text-base sm:text-lg max-w-xl mx-auto">
-          Connect with our export team today to request custom sample kits or get competitive container pricing within 24 hours.
-        </p>
-        <div className="pt-4">
-          <Link href="/#rfq-section" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-extrabold py-4 px-10 rounded-xl transition-all shadow-lg shadow-emerald-950/50">
-            Request Custom Quote
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#1A1A1A] p-8 rounded-3xl border border-[#D4AF37]/20 space-y-4">
+              <h3 className="text-xl font-serif font-bold text-[#D4AF37]">Super Negin Saffron</h3>
+              <ul className="space-y-2 text-xs text-gray-300">
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> All-red long strands</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> No yellow waste or filler weight</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Strong natural aroma & taste</li>
+              </ul>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-8 rounded-3xl border border-[#D4AF37]/20 space-y-4">
+              <h3 className="text-xl font-serif font-bold text-[#D4AF37]">Damask Rosebuds</h3>
+              <ul className="space-y-2 text-xs text-gray-300">
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Tight, whole unopened buds</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Rich pink-crimson natural color</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Perfect for herbal teas & oils</li>
+              </ul>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-8 rounded-3xl border border-[#D4AF37]/20 space-y-4">
+              <h3 className="text-xl font-serif font-bold text-[#D4AF37]">Puffy Dried Barberry</h3>
+              <ul className="space-y-2 text-xs text-gray-300">
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Seedless and soft texture</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Bright ruby red appearance</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> Cleaned and ready for packaging</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 5: GLOBAL FOOTPRINT & SUPPLY CHAIN */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F5EFE6] text-[#121212] border-b border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-6 space-y-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#6B1224] bg-[#6B1224]/10 px-4 py-1.5 rounded-full border border-[#6B1224]/20 inline-block">
+              Global B2B Supply
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2A221E]">
+              Direct Shipping to Saudi Arabia & GCC
+            </h2>
+            <p className="text-[#4A3E3D] text-base leading-relaxed">
+              We regularly supply major spice wholesalers, packaging houses, and pharmaceutical buyers across Saudi Arabia, UAE, Qatar, Kuwait, and European markets.
+            </p>
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-[#D4AF37]/30">
+                <Globe2 className="w-6 h-6 text-[#6B1224]" />
+                <div>
+                  <h4 className="font-bold text-sm text-[#2A221E]">Saudi Arabia</h4>
+                  <p className="text-[11px] text-gray-600">Riyadh & Jeddah Hubs</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-[#D4AF37]/30">
+                <Globe2 className="w-6 h-6 text-[#6B1224]" />
+                <div>
+                  <h4 className="font-bold text-sm text-[#2A221E]">UAE & GCC</h4>
+                  <p className="text-[11px] text-gray-600">Dubai Cargo Depots</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 bg-[#121212] p-8 rounded-3xl border border-[#D4AF37]/40 text-white space-y-4">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-widest flex items-center gap-2">
+              <Sparkles className="w-4 h-4" /> No Middlemen Markups
+            </span>
+            <h3 className="text-2xl font-serif font-bold">Buy Direct From Isfahan Producers</h3>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              By cutting out unnecessary trading agents, we provide competitive wholesale pricing while keeping the quality 100% pure and traceable.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 6: DIRECT B2B CALL TO ACTION (CTA STRIP) */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#121212]">
+        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#1A1A1A] via-[#22181C] to-[#1A1A1A] border border-[#D4AF37]/40 p-10 rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-2 text-center md:text-left">
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Want Sample Kits & Lab Reports?
+            </h3>
+            <p className="text-xs text-gray-300">
+              Get price quotes and sample packages delivered directly to your company desk.
+            </p>
+          </div>
+
+          <Link 
+            href="/#rfq-section" 
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B8952D] text-[#121212] px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all hover:opacity-90 shrink-0"
+          >
+            <span>Request Wholesale RFQ</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </div>
-    </section>
+      </section>
 
     </div>
   );

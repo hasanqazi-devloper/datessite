@@ -1,187 +1,227 @@
-"tsx"
-import { Send, CheckCircle2, Phone, Mail, MapPin } from "lucide-react";
+"use client";
+
+import React, { useState } from "react";
+import { Send, FileText, CheckCircle, ShieldCheck, Mail, Phone, Globe2, Building2 } from "lucide-react";
 
 export default function RfqSection() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
-    <section id="rfq-section" className="bg-emerald-950 text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-emerald-900/60">
-      {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="rfq-section" className="bg-[#121212] py-24 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden border-t border-[#D4AF37]/20">
+      
+      {/* Background Lighting Effects */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#6B1224]/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Info & Direct Contacts (5 Columns) */}
+          {/* Left Side: Business Info & Trust Highlights */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-900/80 px-3 py-1 rounded-full border border-emerald-700/50">
-                Direct Inquiry & RFQ
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+                <FileText className="w-3.5 h-3.5" /> Direct B2B Wholesale Inquiry
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Request a Custom Quote Within 24 Hours
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mt-4 leading-tight">
+                Request Export Quote & Lab Samples
               </h2>
-              <p className="text-emerald-100/70 text-base leading-relaxed">
-                Looking for specific denier, cut length, or container shipping rates? Fill out the form or reach out directly to our export team.
+              <p className="text-gray-400 mt-4 text-base leading-relaxed">
+                Connect directly with Sadra Saleh's export division. Get official commercial proforma invoices, phytosanitary specs, and custom bulk packaging details within 24 hours.
               </p>
             </div>
 
-            {/* Quick Benefits */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-emerald-100 text-sm font-medium">
-                <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span>Competitive wholesale factory pricing</span>
-              </div>
-              <div className="flex items-center gap-3 text-emerald-100 text-sm font-medium">
-                <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span>Complete export documentation support</span>
-              </div>
-              <div className="flex items-center gap-3 text-emerald-100 text-sm font-medium">
-                <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span>Flexible container load options</span>
-              </div>
+            {/* Guarantees Box */}
+            <div className="bg-[#1A1A1A] border border-[#D4AF37]/30 p-6 rounded-2xl space-y-4">
+              <h3 className="text-sm font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4" /> Importer Guarantees
+              </h3>
+              <ul className="space-y-3 text-xs text-gray-300">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <span>ISO 22000 & HACCP Certified Quality Reports</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <span>Free Express Lab Sample Bales for Verified Importers</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <span>Flexible Incoterms: FOB, CIF, CIP (Jeddah, Dubai, Rotterdam)</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Contact Details Box */}
-            <div className="bg-emerald-900/40 border border-emerald-800/60 p-6 rounded-3xl space-y-4 backdrop-blur-md">
-              <h3 className="font-bold text-white text-base">Direct Office Contact</h3>
-              
-              <div className="flex items-center gap-3 text-emerald-100/80 text-sm">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span>+98 (Tehran Office Inquiry)</span>
-              </div>
-
-              <div className="flex items-center gap-3 text-emerald-100/80 text-sm">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <span>info@koushiartejarat.com</span>
-              </div>
-
-              <div className="flex items-center gap-3 text-emerald-100/80 text-sm">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span>Tehran, Iran • Global Export Hub</span>
+            {/* Direct Contact Alternatives */}
+            <div className="pt-2 space-y-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Prefer Direct Contact?</p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href="https://wa.me/989123456789" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#1A1A1A] border border-[#D4AF37]/40 hover:border-[#D4AF37] px-5 py-3 rounded-xl text-xs font-bold text-white transition-all"
+                >
+                  <Phone className="w-4 h-4 text-[#D4AF37]" />
+                  <span>WhatsApp Export Desk</span>
+                </a>
+                <a 
+                  href="mailto:export@sadrasaleh.com" 
+                  className="flex items-center justify-center gap-2 bg-[#1A1A1A] border border-[#D4AF37]/40 hover:border-[#D4AF37] px-5 py-3 rounded-xl text-xs font-bold text-white transition-all"
+                >
+                  <Mail className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Email Commercial Dept.</span>
+                </a>
               </div>
             </div>
-
           </div>
 
-          {/* Right Column: High-Converting Dark Green RFQ Form (7 Columns) */}
-          <div className="lg:col-span-7 bg-emerald-900/40 border border-emerald-800/60 p-8 sm:p-10 rounded-3xl backdrop-blur-md shadow-xl">
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Submit Your Fiber Specifications
-            </h3>
-
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Full Name *
-                  </label>
-                  <input 
-                    type="text" 
-                    required
-                    placeholder="John Doe" 
-                    className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl px-4 py-3 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  />
+          {/* Right Side: The RFQ Form */}
+          <div className="lg:col-span-7 bg-[#1A1A1A] border border-[#D4AF37]/30 p-8 sm:p-10 rounded-3xl shadow-2xl relative">
+            
+            {submitted ? (
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle className="w-8 h-8" />
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Company Name *
-                  </label>
-                  <input 
-                    type="text" 
-                    required
-                    placeholder="Your Manufacturing Firm" 
-                    className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl px-4 py-3 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  />
-                </div>
+                <h3 className="text-2xl font-serif font-bold text-white">RFQ Submitted Successfully</h3>
+                <p className="text-gray-400 text-sm max-w-md mx-auto">
+                  Thank you for reaching out. Our international trade representative will contact you with product spec sheets and official pricing within 24 hours.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 text-xs text-[#D4AF37] underline font-semibold uppercase tracking-wider"
+                >
+                  Submit Another Inquiry
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                
+                {/* Contact Info Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Ahmad Al-Mansoor"
+                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
+                    />
+                  </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Email Address *
-                  </label>
-                  <input 
-                    type="email" 
-                    required
-                    placeholder="john@company.com" 
-                    className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl px-4 py-3 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  />
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Company Name *
+                    </label>
+                    <div className="relative">
+                      <Building2 className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
+                      <input
+                        type="text"
+                        required
+                        placeholder="Global Spices Trading Ltd."
+                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Select Product *
-                  </label>
-                  <select 
-                    className="w-full bg-emerald-950/80 border border-emerald-800/80 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  >
-                    <option className="bg-emerald-950 text-white">Solid Polyester Fiber</option>
-                    <option className="bg-emerald-950 text-white">Hollow Conjugated Fiber</option>
-                    <option className="bg-emerald-950 text-white">Cotton-Type Polyester Fiber</option>
-                    <option className="bg-emerald-950 text-white">Custom Specification</option>
-                  </select>
+
+                {/* Email & Phone Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Business Email *
+                    </label>
+                    <div className="relative">
+                      <Mail className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
+                      <input
+                        type="email"
+                        required
+                        placeholder="import@company.com"
+                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Destination Country / Port *
+                    </label>
+                    <div className="relative">
+                      <Globe2 className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Saudi Arabia (Jeddah Port)"
+                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Estimated Quantity
-                  </label>
-                  <input 
-                    type="text" 
-                    placeholder="e.g. 1 Container / 20 Tons" 
-                    className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl px-4 py-3 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  />
+                {/* Product & Quantity Selection */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Product Required *
+                    </label>
+                    <select
+                      required
+                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
+                    >
+                      <option value="super-negin">Super Negin Saffron (Grade A+)</option>
+                      <option value="damask-rose">Damask Rosebuds & Petals</option>
+                      <option value="barberry">Puffy Organic Barberry (Zereshk)</option>
+                      <option value="mixed">Mixed Bulk Order</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                      Target Order Volume (KG) *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. 50 KG, 500 KG, 1 Ton"
+                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
+                    />
+                  </div>
                 </div>
+
+                {/* Additional Requirements */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                    Destination Port / Country
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+                    Custom Packaging or Lab Requirements
                   </label>
-                  <input 
-                    type="text" 
-                    placeholder="e.g. Port of Hamburg, Germany" 
-                    className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl px-4 py-3 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                  />
+                  <textarea
+                    rows={4}
+                    placeholder="Mention custom tin packaging, private labeling, or required ISO certificates..."
+                    className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
+                  ></textarea>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-emerald-200/80 mb-2">
-                  Additional Requirements
-                </label>
-                <textarea 
-                  rows={4} 
-                  placeholder="Specify Denier (e.g. 3D), Cut Length (e.g. 64mm), or siliconization preferences..."
-                  className="w-full bg-emerald-950/60 border border-emerald-800/80 rounded-xl p-4 text-white placeholder-emerald-300/50 focus:outline-none focus:border-emerald-400 transition-colors text-sm shadow-sm"
-                ></textarea>
-              </div>
+                {/* Submit CTA */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8952D] hover:from-[#b8952d] hover:to-[#9c7d23] text-[#121212] font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#D4AF37]/15"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Submit Wholesale RFQ</span>
+                </button>
 
-              <button 
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-emerald-950 font-bold py-4 px-8 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-xl transition-all text-base cursor-pointer"
-              >
-                <span>Submit RFQ & Get Quote Within 24 Hours</span>
-                <Send className="w-4 h-4" />
-              </button>
+              </form>
+            )}
 
-            </form>
           </div>
 
         </div>
-
       </div>
     </section>
   );

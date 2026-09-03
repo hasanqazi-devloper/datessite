@@ -1,46 +1,58 @@
-"tsx"
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function ProductsSection() {
   const products = [
     {
-      title: "Solid Polyester Fiber",
-      desc: "High-durability fibers for industrial nonwovens and automotive padding.",
-      img: "https://images.unsplash.com/photo-1643766883802-be314eb4d339?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN5bnRoZXRpYyUyMGZpYmVyc3xlbnwwfHwwfHx8MA%3D%3D"
+      title: "Super Negin Saffron",
+      grade: "Grade A+ • ISO 22000 Certified",
+      desc: "All-red, thick filaments with maximum Crocin (coloring potency) and intense aroma. Harvested from Isfahan farms.",
+      features: ["Crocin Level: 250+", "Zero Moisture Additives", "Vacuum Bulk / Tin Box"],
+      img: "https://images.pexels.com/photos/10487658/pexels-photo-10487658.jpeg?_gl=1*1w5qkci*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MzE0OTEkbzIkZzEkdDE3ODg0MzE1MjckajI0JGwwJGgw"
     },
     {
-      title: "Hollow Conjugated Fiber",
-      desc: "Premium resilience and loft for bedding, pillows, and luxury quilts.",
-      img: "https://images.unsplash.com/photo-1761642932833-fa22d121766b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGZsdWZmeSUyMHdoaXRlJTIwY290dG9ufGVufDB8fDB8fHww"
+      title: "Damask Rosebuds & Petals",
+      grade: "100% Organic • Steam Dried",
+      desc: "Hand-picked Iranian Rosebuds for tea blends, essential oil extraction, and premium confectionery manufacturing.",
+      features: ["High Essential Oil Yield", "Vibrant Natural Color", "5kg - 10kg Export Bales"],
+      img: "https://images.pexels.com/photos/38946088/pexels-photo-38946088.jpeg?_gl=1*1u9lu32*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MjI2MDAkbzEkZzEkdDE3ODg0MjI2MTUkajQ1JGwwJGgw",
     },
     {
-      title: "Cotton-Type Fiber",
-      desc: "Excellent uniformity for seamless textile spinning and fabric blends.",
-      img: "https://images.unsplash.com/photo-1758270804188-8ca0b6d254bc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRleHRpbGUlMjBzcGlubmluZyUyMG1pbGx8ZW58MHx8MHx8fDA%3D"
+      title: "Puffy Dried Barberry (Zereshk)",
+      grade: "Export Grade • Seedless",
+      desc: "Naturally shade-dried, vibrant crimson seedless barberries curated for global food importers and wholesale spice markets.",
+      features: ["Uniform Crimson Grade", "Pesticide Residue Free", "10kg Sealed Cartons"],
+      img: "https://images.pexels.com/photos/30688213/pexels-photo-30688213.jpeg?_gl=1*vfb6ad*_ga*MTQ1MDI1NzA3My4xNzg4NDIyNjAx*_ga_8JE65Q40S6*czE3ODg0MjI2MDAkbzEkZzEkdDE3ODg0MjI4MzMkajYwJGwwJGgw"
     }
   ];
 
   return (
-    <section className="bg-emerald-950 py-24 px-4 sm:px-6 lg:px-8 text-white border-t border-emerald-900/60">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#121212] py-24 px-4 sm:px-6 lg:px-8 text-white border-t border-[#D4AF37]/20 relative overflow-hidden">
+      
+      {/* Background Ambient Glows */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#6B1224]/20 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
-        
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-              Our Product Range
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5" /> Direct Isfahan Farm Harvest
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-white">
+              Export-Grade Product Range
             </h2>
-            <p className="text-emerald-100/70 text-base md:text-lg">
-              Precision-manufactured synthetic staple fibers designed to meet international spinning and nonwoven standards.
+            <p className="text-gray-400 text-base md:text-lg">
+              Batch-tested and lab-certified agricultural exports prepared for wholesale distributors, tea blenders, and pharmaceutical labs.
             </p>
           </div>
           <Link 
             href="#rfq-section" 
-            className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors border-b border-emerald-400/50 pb-1"
+            className="inline-flex items-center gap-2 text-[#D4AF37] font-bold hover:text-white transition-colors border-b border-[#D4AF37]/50 pb-1 text-sm tracking-wider uppercase"
           >
-            <span>Request Full Catalog</span>
+            <span>Download Spec Sheets</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -50,35 +62,50 @@ export default function ProductsSection() {
           {products.map((item, index) => (
             <div 
               key={index} 
-              className="bg-emerald-900/40 border border-emerald-800/60 rounded-3xl overflow-hidden backdrop-blur-md flex flex-col justify-between group hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-950 transition-all duration-300"
+              className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-3xl overflow-hidden flex flex-col justify-between group hover:border-[#D4AF37] hover:shadow-2xl hover:shadow-[#D4AF37]/10 transition-all duration-500"
             >
-              {/* Image Container */}
-              <div className="h-60 w-full relative overflow-hidden">
+              {/* Image Container with Badge */}
+              <div className="h-64 w-full relative overflow-hidden">
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-black/30" />
+                
+                {/* Grade Badge */}
+                <div className="absolute top-4 left-4 bg-[#121212]/90 backdrop-blur-md border border-[#D4AF37]/40 px-3 py-1 rounded-full text-[11px] font-bold text-[#D4AF37]">
+                  {item.grade}
+                </div>
               </div>
               
               {/* Content Body */}
               <div className="p-8 flex flex-col flex-grow justify-between space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-serif font-bold text-white group-hover:text-[#D4AF37] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-emerald-100/80 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     {item.desc}
                   </p>
+
+                  {/* Bullet Specs */}
+                  <div className="pt-3 space-y-2">
+                    {item.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-center gap-2 text-xs text-gray-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Action CTA Button with High Contrast */}
+                {/* Action CTA Button */}
                 <Link 
                   href="#rfq-section" 
-                  className="w-full flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-emerald-950 py-3.5 px-6 rounded-xl font-bold transition-colors text-sm shadow-md"
+                  className="w-full flex items-center justify-center gap-2 bg-[#D4AF37] hover:bg-[#b8952d] text-[#121212] py-3.5 px-6 rounded-xl font-bold transition-all text-xs uppercase tracking-wider shadow-lg shadow-[#D4AF37]/10"
                 >
-                  <span>View Details & Inquire</span>
+                  <span>Inquire Wholesale Price</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

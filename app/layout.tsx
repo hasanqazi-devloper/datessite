@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
- title: "Koushiar Tejarat | Global Fiber Export",
-description: "Bespoke Synthetic Fiber Intelligence & International Trade Presentation Matrix",
+title: "Sadra Saleh | Premium Isfahan Saffron & Botanical B2B Export",
+description: "Direct producers of Grade A+ Super Negin Saffron, Damask Rosebuds, and Barberry from Isfahan. Supplying bulk wholesale markets across Saudi Arabia, GCC, and worldwide.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path
