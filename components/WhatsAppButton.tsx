@@ -3,9 +3,9 @@
 import { motion as m } from "framer-motion";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "923000000000"; // ✅ Apni company ka real WhatsApp number yahan add karein
+  const phoneNumber = "2348060102925"; // ✅ CGO Coal Export Official WhatsApp Number
   const directMessage = encodeURIComponent(
-    "Hello Sadra Saleh Export Team, I would like to inquire about bulk B2B quotations and lab analysis reports for Super Negin Saffron and Botanical Harvest."
+    "Hello CGO Coal Export Team, I would like to inquire about bulk 40ft HC container quotations and lab analysis reports for Hardwood Charcoal."
   );
 
   return (
@@ -16,32 +16,32 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-[#121212] border border-[#D4AF37]/40 hover:border-[#D4AF37] shadow-[0_20px_50px_rgba(107,18,36,0.5)] group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-slate-950 border border-amber-500/40 hover:border-amber-400 shadow-[0_10px_30px_rgba(217,119,6,0.3)] group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
     >
-      {/* 👑 Floating Gold Micro Label above the button */}
-      <div className="absolute -top-7 right-0 bg-gradient-to-r from-[#D4AF37] to-[#B8952D] text-[#121212] text-[8px] font-extrabold tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-[#D4AF37]/40 font-sans shadow-md pointer-events-none select-none opacity-95 group-hover:opacity-100 transition-all duration-300">
+      {/* Floating Amber Gold Badge */}
+      <div className="absolute -top-7 right-0 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[8px] font-black tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-amber-400/40 font-sans shadow-md pointer-events-none select-none opacity-90 group-hover:opacity-100 transition-all duration-300">
         B2B·DESK
       </div>
 
-      {/* 👑 LUXURY GOLD & BURGUNDY COIN ENGINE */}
+      {/* COAL & AMBER GLOW COIN ENGINE */}
       <div className="relative h-11 w-11 flex items-center justify-center shrink-0 rounded-full overflow-hidden">
-        {/* Deep Isfahan Rose Burgundy gradient layer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#6B1224] to-[#2B0007] rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
+        {/* Deep Slate Charcoal Gradient Layer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
         
-        {/* Saffron Gold inner glow reflex */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.35)_0%,transparent_65%)] rounded-full pointer-events-none" />
+        {/* Amber Ember Glow Radial Reflex */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.25)_0%,transparent_70%)] rounded-full pointer-events-none" />
 
-        {/* Pure WhatsApp SVG Icon rendered in Saffron Gold */}
+        {/* Pure WhatsApp SVG Icon in Emerald Green Accent */}
         <svg 
           viewBox="0 0 24 24" 
-          className="w-5 h-5 text-[#D4AF37] relative z-10 fill-current drop-shadow-[0_2px_5px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:rotate-12 group-hover:scale-105"
+          className="w-5 h-5 text-emerald-400 relative z-10 fill-current drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
         >
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
       </div>
 
-      {/* Saffron Gold Active Notification Badge */}
-      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#D4AF37] text-[8px] font-black font-sans text-[#121212] shadow-md border border-[#121212]">
+      {/* Amber Gold Active Notification Badge */}
+      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[8px] font-black font-sans text-slate-950 shadow-md border border-slate-950">
         1
       </span>
     </m.a>

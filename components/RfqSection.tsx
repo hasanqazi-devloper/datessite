@@ -1,227 +1,238 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Send, FileText, CheckCircle, ShieldCheck, Mail, Phone, Globe2, Building2 } from "lucide-react";
+import React, { useState } from 'react';
 
-export default function RfqSection() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+export default function RFQSection() {
+  const [incoterm, setIncoterm] = useState('FOB');
+  const [charcoalType, setCharcoalType] = useState('Ayin Hardwood');
+  const [containerQty, setContainerQty] = useState('1 x 40ft HC');
 
   return (
-    <section id="rfq-section" className="bg-[#121212] py-24 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden border-t border-[#D4AF37]/20">
-      
-      {/* Background Lighting Effects */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#6B1224]/15 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="rfq" className="relative bg-slate-900 text-slate-100 py-20 md:py-28 px-4 md:px-16 border-b border-slate-800/80 overflow-hidden">
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Side: Business Info & Trust Highlights */}
-          <div className="lg:col-span-5 space-y-8">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-4 py-1.5 rounded-full inline-flex items-center gap-2">
-                <FileText className="w-3.5 h-3.5" /> Direct B2B Wholesale Inquiry
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mt-4 leading-tight">
-                Request Export Quote & Lab Samples
-              </h2>
-              <p className="text-gray-400 mt-4 text-base leading-relaxed">
-                Connect directly with Sadra Saleh's export division. Get official commercial proforma invoices, phytosanitary specs, and custom bulk packaging details within 24 hours.
-              </p>
-            </div>
+      {/* Dynamic Background Glows & Mesh Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:28px_28px] opacity-20 pointer-events-none" />
+      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-            {/* Guarantees Box */}
-            <div className="bg-[#1A1A1A] border border-[#D4AF37]/30 p-6 rounded-2xl space-y-4">
-              <h3 className="text-sm font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4" /> Importer Guarantees
-              </h3>
-              <ul className="space-y-3 text-xs text-gray-300">
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>ISO 22000 & HACCP Certified Quality Reports</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Free Express Lab Sample Bales for Verified Importers</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Flexible Incoterms: FOB, CIF, CIP (Jeddah, Dubai, Rotterdam)</span>
-                </li>
-              </ul>
-            </div>
+      <div className="relative max-w-7xl mx-auto space-y-12">
 
-            {/* Direct Contact Alternatives */}
-            <div className="pt-2 space-y-3">
-              <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Prefer Direct Contact?</p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="https://wa.me/989123456789" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#1A1A1A] border border-[#D4AF37]/40 hover:border-[#D4AF37] px-5 py-3 rounded-xl text-xs font-bold text-white transition-all"
-                >
-                  <Phone className="w-4 h-4 text-[#D4AF37]" />
-                  <span>WhatsApp Export Desk</span>
-                </a>
-                <a 
-                  href="mailto:export@sadrasaleh.com" 
-                  className="flex items-center justify-center gap-2 bg-[#1A1A1A] border border-[#D4AF37]/40 hover:border-[#D4AF37] px-5 py-3 rounded-xl text-xs font-bold text-white transition-all"
-                >
-                  <Mail className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Email Commercial Dept.</span>
-                </a>
+        {/* HEADER SECTION */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <span className="text-amber-400 text-[11px] font-black tracking-widest uppercase bg-slate-800/90 border border-amber-500/30 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-lg backdrop-blur-md">
+            <svg className="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z" />
+            </svg>
+            Direct Lagos Port Quotation Desk
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
+            Request an Official FOB / CIF Export Quote
+          </h2>
+          <p className="text-slate-400 text-xs md:text-sm font-medium max-w-xl mx-auto leading-relaxed">
+            Get instant commercial pricing verified by our port operations team. SGS quality certificate included with every formal offer sheet.
+          </p>
+        </div>
+
+        {/* MAIN CONTAINER (SLATE METALLIC CARDS) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          {/* LEFT COLUMN: VALUE PROPOSITION (5 COLS) */}
+          <div className="lg:col-span-5 space-y-6 bg-slate-800/60 border border-slate-700/60 p-6 md:p-8 rounded-3xl backdrop-blur-xl shadow-2xl flex flex-col justify-between">
+            <div className="space-y-6">
+              <div>
+                <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest block mb-1">
+                  Excellence Guaranteed
+                </span>
+                <h3 className="text-xl md:text-2xl font-black text-white">
+                  Bulk Shipment Assurance
+                </h3>
               </div>
+
+              <div className="space-y-5 border-y border-slate-700/60 py-6">
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-amber-500/10 text-amber-400 rounded-xl border border-amber-500/20 shrink-0">
+                    <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">Fast-Track Turnaround</h4>
+                    <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">Official Proforma Invoice issued within 4 working hours.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20 shrink-0">
+                    <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">Lab Certified Cargo</h4>
+                    <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">Fumigation, MSDS &amp; Phytosanitary clearances attached.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-blue-500/10 text-blue-400 rounded-xl border border-blue-500/20 shrink-0">
+                    <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+                      <path d="M2 20h20M2 4h20M10 4v16M14 4v16" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">Global Banking Terms</h4>
+                    <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">Flexible LC at sight and T/T options backed by top-tier banks.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* NEPC FOOTER BADGE */}
+            <div className="bg-slate-900/80 border border-slate-700/80 p-4 rounded-2xl flex items-center justify-between mt-auto">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                <span className="text-xs font-bold text-slate-200">NEPC Registered Exporter</span>
+              </div>
+              <span className="text-[10px] font-black uppercase text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                Lagos Port Desk
+              </span>
             </div>
           </div>
 
-          {/* Right Side: The RFQ Form */}
-          <div className="lg:col-span-7 bg-[#1A1A1A] border border-[#D4AF37]/30 p-8 sm:p-10 rounded-3xl shadow-2xl relative">
-            
-            {submitted ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle className="w-8 h-8" />
+          {/* RIGHT COLUMN: HIGH-CONTRAST NEUTRAL FORM (7 COLS) */}
+          <div className="lg:col-span-7 bg-slate-800/80 border border-slate-700/80 p-6 md:p-8 rounded-3xl shadow-2xl backdrop-blur-xl space-y-6">
+
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+
+              {/* SELECT INCOTERM */}
+              <div className="space-y-2">
+                <label className="text-xs font-black text-slate-300 uppercase tracking-wider block">
+                  1. Shipping Term (Incoterms 2020)
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {['FOB (Apapa / Tin Can Port)', 'CIF (Destination Port)'].map((term) => {
+                    const termKey = term.split(' ')[0];
+                    const isSelected = incoterm === termKey;
+                    return (
+                      <button
+                        type="button"
+                        key={term}
+                        onClick={() => setIncoterm(termKey)}
+                        className={`p-3.5 text-xs font-bold rounded-xl border transition-all text-left flex items-center justify-between ${isSelected
+                            ? 'bg-amber-500 text-slate-950 border-amber-400 font-black shadow-lg shadow-amber-500/20'
+                            : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-600'
+                          }`}
+                      >
+                        <span>{term}</span>
+                        {isSelected && (
+                          <svg className="w-4 h-4 fill-current text-slate-950" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                          </svg>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-white">RFQ Submitted Successfully</h3>
-                <p className="text-gray-400 text-sm max-w-md mx-auto">
-                  Thank you for reaching out. Our international trade representative will contact you with product spec sheets and official pricing within 24 hours.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 text-xs text-[#D4AF37] underline font-semibold uppercase tracking-wider"
-                >
-                  Submit Another Inquiry
-                </button>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                
-                {/* Contact Info Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Ahmad Al-Mansoor"
-                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
-                    />
-                  </div>
 
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Company Name *
-                    </label>
-                    <div className="relative">
-                      <Building2 className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
-                      <input
-                        type="text"
-                        required
-                        placeholder="Global Spices Trading Ltd."
-                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
+              {/* INPUT FIELDS ROW */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">Charcoal Category</label>
+                  <select
+                    value={charcoalType}
+                    onChange={(e) => setCharcoalType(e.target.value)}
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors"
+                  >
+                    <option>Ayin Hardwood (High Density)</option>
+                    <option>Restaurant Grade Charcoal</option>
+                    <option>Shisha Coconut Briquettes</option>
+                    <option>BBQ Lumpwood</option>
+                  </select>
                 </div>
 
-                {/* Email & Phone Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Business Email *
-                    </label>
-                    <div className="relative">
-                      <Mail className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
-                      <input
-                        type="email"
-                        required
-                        placeholder="import@company.com"
-                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">Target Volume / Quantity</label>
+                  <select
+                    value={containerQty}
+                    onChange={(e) => setContainerQty(e.target.value)}
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors"
+                  >
+                    <option>1 x 40ft HC (Trial Cargo)</option>
+                    <option>2 - 5 x 40ft HC (Monthly Contract)</option>
+                    <option>10+ Containers (Annual Supply)</option>
+                  </select>
+                </div>
+              </div>
 
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Destination Country / Port *
-                    </label>
-                    <div className="relative">
-                      <Globe2 className="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" />
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Saudi Arabia (Jeddah Port)"
-                        className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl pl-10 pr-4 py-3 text-sm text-white outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
+              {/* BUYER DETAILS */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">Company Name</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Al-Mansoor Trading LLC"
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500"
+                  />
                 </div>
 
-                {/* Product & Quantity Selection */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Product Required *
-                    </label>
-                    <select
-                      required
-                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
-                    >
-                      <option value="super-negin">Super Negin Saffron (Grade A+)</option>
-                      <option value="damask-rose">Damask Rosebuds & Petals</option>
-                      <option value="barberry">Puffy Organic Barberry (Zereshk)</option>
-                      <option value="mixed">Mixed Bulk Order</option>
-                    </select>
-                  </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">Destination Port (If CIF)</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Jebel Ali / Rotterdam / Xingang"
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500"
+                  />
+                </div>
+              </div>
 
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                      Target Order Volume (KG) *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. 50 KG, 500 KG, 1 Ton"
-                      className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
-                    />
-                  </div>
+              {/* CONTACT DETAILS */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">Work Email</label>
+                  <input
+                    type="email"
+                    placeholder="procurement@company.com"
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500"
+                  />
                 </div>
 
-                {/* Additional Requirements */}
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
-                    Custom Packaging or Lab Requirements
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Mention custom tin packaging, private labeling, or required ISO certificates..."
-                    className="w-full bg-[#121212] border border-gray-700 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
-                  ></textarea>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-300">WhatsApp / Phone Number</label>
+                  <input
+                    type="tel"
+                    placeholder="+971 50 123 4567"
+                    className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-3 text-xs text-white font-medium focus:outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500"
+                  />
                 </div>
+              </div>
 
-                {/* Submit CTA */}
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8952D] hover:from-[#b8952d] hover:to-[#9c7d23] text-[#121212] font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#D4AF37]/15"
+              {/* SUBMIT BUTTON */}
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black text-[11px] sm:text-xs md:text-sm px-4 py-3.5 sm:py-4 rounded-xl shadow-xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all uppercase tracking-wider flex items-center justify-center gap-2 mt-2 cursor-pointer active:scale-[0.98] select-none"
+              >
+                <svg
+                  className="w-4 h-4 stroke-current fill-none stroke-[2.5] shrink-0"
+                  viewBox="0 0 24 24"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Wholesale RFQ</span>
-                </button>
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+                <span className="text-center">Submit RFQ &amp; Request Proforma Invoice</span>
+              </button>
 
-              </form>
-            )}
+            </form>
 
           </div>
 
         </div>
+
       </div>
     </section>
   );
