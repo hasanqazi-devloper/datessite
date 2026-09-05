@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-title: "Sadra Saleh | Premium Isfahan Saffron & Botanical B2B Export",
-description: "Direct producers of Grade A+ Super Negin Saffron, Damask Rosebuds, and Barberry from Isfahan. Supplying bulk wholesale markets across Saudi Arabia, GCC, and worldwide.",
+title: "Export Grade Charcoal Catalog | Ayin, BBQ & Shisha Coconut",
+description: "Explore our full export catalog of Nigerian Ayin hardwood charcoal, restaurant-grade lump, BBQ, and premium hookah coconut cubes. Download technical specs and request a quote.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path
