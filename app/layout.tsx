@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-title: "Export Grade Charcoal Catalog | Ayin, BBQ & Shisha Coconut",
-description: "Explore our full export catalog of Nigerian Ayin hardwood charcoal, restaurant-grade lump, BBQ, and premium hookah coconut cubes. Download technical specs and request a quote.",
+title: "Farm-to-Port Export Supply Chain | Process & Sourcing",
+description: "Explore our transparent 6-step Egyptian herbs export process—from Al Minya farm harvesting and solar drying to lab analysis and loading at Alexandria Port.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path

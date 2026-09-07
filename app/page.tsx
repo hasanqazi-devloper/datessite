@@ -6,6 +6,7 @@ import TrustSection from "@/components/TrustSection";
 import ProductsSection from "@/components/ProductsSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import HeritageStory from "@/components/HeritageStory";
+import Testimonials from "@/components/Testimonials";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import LogisticsEstimator from "@/components/LogisticsEstimator";
 import RfqSection from "@/components/RfqSection";
@@ -20,10 +21,11 @@ export default function SohipEliteFinal() {
         <TrustSection />
         <ProductsSection />
         <HeritageStory />
-        <LogisticsEstimator />
+        {/* <LogisticsEstimator /> */}
 
 
         <IndustriesSection />
+        <Testimonials />
         {/* <WhyChooseUsSection /> */}
         <RfqSection />
         <WhatsAppButton/>

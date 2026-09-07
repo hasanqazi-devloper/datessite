@@ -4,402 +4,357 @@ import React from 'react';
 import Image from 'next/image';
 import { 
   ArrowDown, 
-  MapPin, 
+  Leaf, 
   ShieldCheck, 
-  Quote, 
-  Trees, 
-  Filter, 
-  FlaskConical, 
-  Ship, 
+  Sun, 
+  Wind, 
   FileCheck2, 
-  Flame, 
-  Globe2, 
+  Ship, 
   CheckCircle2, 
+  Globe2, 
+  PackageCheck, 
+  MessageSquare, 
   ArrowUpRight,
-  Download
+  Sprout,
+  Check
 } from 'lucide-react';
 
 export default function AboutPage() {
+  const steps = [
+    { num: '01', title: 'Sustainable Cultivation', desc: 'Direct farm management in Al Minya with zero synthetic additives.' },
+    { num: '02', title: 'Controlled Solar Drying', desc: 'Moisture reduced below 8% to preserve vital aromatic oils.' },
+    { num: '03', title: 'Precision Mechanical Sifting', desc: 'Air-sifting stem and dust particles ensuring ≥ 99% leaf purity.' },
+    { num: '04', title: 'Lab Inspection & COA', desc: 'Phytosanitary & batch analysis verifying strict international standards.' },
+    { num: '05', title: 'Container Loading & Port Dispatch', desc: 'Sealed export packaging shipped directly from Alexandria Port.' },
+  ];
+
   return (
-    <main className="bg-slate-950 text-white min-h-screen selection:bg-amber-500 selection:text-slate-950">
-      
-      {/* ==========================================
-          1. HERO SECTION (Sample Inspired Design)
-      ========================================== */}
-      <section className="relative min-h-[85vh] flex items-center justify-start px-6 md:px-16 overflow-hidden border-b border-slate-800/80 pt-20 pb-16">
+    <div className="bg-[#0B0F0D] text-[#E2ECE6] min-h-screen selection:bg-emerald-500 selection:text-slate-950">
+
+      {/* 1. HERO SECTION (UPDATED WITH FARM FIELD BG & BRAND ACCENTS) */}
+      <section className="relative bg-[#0B0F0D] text-white overflow-hidden py-28 md:py-36 border-b border-[#22332B]">
+        
+        {/* Background Egyptian Farm Field Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-charcoal-bg.jpg"
-            alt="Sustainable Nigerian Timber"
+            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80"
+            alt="Egyptian Farm Field"
             fill
             priority
-            className="object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+            className="object-cover object-center opacity-25 grayscale-[20%] mix-blend-luminosity scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F0D] via-[#0B0F0D]/90 to-[#0B0F0D]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0D] via-transparent to-[#0B0F0D]/80" />
         </div>
 
-        <div className="absolute -top-24 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Brand Glow Animations & Grid Accent */}
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-[140px] pointer-events-none animate-pulse" />
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none z-0" />
 
-        <div className="relative z-10 max-w-4xl space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
-              ABOUT CGO EXPORTS
-            </span>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-3xl space-y-7 text-left">
+            
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 bg-[#141C18]/90 border border-emerald-500/40 px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-emerald-400 uppercase shadow-xl backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <span>ABOUT AL-JARHI TRADING</span>
+            </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-none uppercase">
-            ABOUT <span className="text-amber-500">US.</span>
-          </h1>
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none uppercase">
+              <span className="text-white">ABOUT </span>
+              <span className="text-emerald-400 drop-shadow-[0_0_25px_rgba(16,185,129,0.3)]">US.</span>
+            </h1>
 
-          <div className="space-y-3">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-amber-400 max-w-2xl leading-tight">
-              Empowering Global Industry with Authentic Nigerian Hardwood Charcoal
+            {/* Subtitle */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-100 tracking-tight leading-tight">
+              Rooted in Egyptian Soil, Exporting Pure Quality Worldwide
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-              Direct forest-to-port supply chain with zero middleman markups.
+
+            {/* Paragraph */}
+            <p className="text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed max-w-2xl">
+              Direct farm sourcing from Al Minya to global destination ports with complete transparency and purity compliance.
             </p>
-          </div>
 
-          <div>
-            <a
-              href="#process"
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-slate-950 px-8 py-4 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300 shadow-xl shadow-amber-500/10 hover:shadow-amber-500/25 active:scale-95"
-            >
-              <span>Explore Our History</span>
-              <ArrowDown className="w-4 h-4 stroke-[3]" />
-            </a>
-          </div>
+            {/* Action CTA */}
+            <div className="pt-2">
+              <a
+                href="#story"
+                className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/40 transform active:scale-95 group"
+              >
+                <span>EXPLORE OUR HISTORY</span>
+                <ArrowDown className="w-4 h-4 stroke-[3] transition-transform duration-300 group-hover:translate-y-1" />
+              </a>
+            </div>
 
-          {/* KEY STATS BAR */}
-          <div className="pt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-slate-800/80">
-            <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
-              <p className="text-2xl sm:text-3xl font-black text-amber-400">10,000+ MT</p>
-              <p className="text-[11px] text-slate-400 font-medium">Annual Supply Capacity</p>
-            </div>
-            <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
-              <p className="text-2xl sm:text-3xl font-black text-amber-400">15+ Countries</p>
-              <p className="text-[11px] text-slate-400 font-medium">Global Footprint</p>
-            </div>
-            <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
-              <p className="text-2xl sm:text-3xl font-black text-amber-400">&lt; 8%</p>
-              <p className="text-[11px] text-slate-400 font-medium">Guaranteed Moisture Rate</p>
-            </div>
-            <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
-              <p className="text-2xl sm:text-3xl font-black text-amber-400">100%</p>
-              <p className="text-[11px] text-slate-400 font-medium">Legal &amp; Sustainable Forestry</p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ==========================================
-          2. OPERATIONAL LEADERSHIP SPOTLIGHT
-      ========================================== */}
-      <section className="py-20 px-4 md:px-12 border-b border-slate-800/80 bg-slate-900/40">
-        <div className="max-w-5xl mx-auto space-y-10">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Operational Leadership
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Direct On-Ground Supervision</h2>
-          </div>
+      {/* 2. OUR ORIGIN & STORY (AL MINYA LEGACY) */}
+      <section id="story" className="py-20 md:py-28 bg-[#121A16] border-b border-[#22332B] relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-6 space-y-6">
+            <div className="inline-flex items-center gap-2 text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#1A2620] border border-emerald-500/30 px-3.5 py-1.5 rounded-full">
+              <Sprout className="w-4 h-4" />
+              <span>THE AL MINYA LEGACY</span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+              Direct Farm Sourcing Without Brokers
+            </h2>
+            
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-normal">
+              Al-Jarhi Trading was established in the rich agricultural region of Al Minya, Egypt, with a clear purpose: eliminating middleman markups and delivering authentic, sun-dried Egyptian herbs straight to global B2B importers.
+            </p>
 
-          <div className="bg-slate-950/90 border border-slate-800 p-6 sm:p-10 rounded-3xl relative overflow-hidden shadow-2xl">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-amber-500/50 shrink-0 bg-slate-900 shadow-xl">
-                <Image
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQETazKjpjmCVg/profile-displayphoto-crop_800_800/B4EaBh6WUWIkAI-/0/1788349082799?e=1790208000&v=beta&t=yTM_Kz3Tp-xUTtHcma4cx8acQY_zSQvs95owEknrj6E"
-                  alt="Chinenye Grace Onyemaechi"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="space-y-4 text-center lg:text-left flex-1">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div>
-                    <div className="flex items-center justify-center lg:justify-start gap-2">
-                      <h3 className="text-xl sm:text-2xl font-black text-white">Chinenye Grace Onyemaechi</h3>
-                      <span className="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full">1st</span>
-                    </div>
-                    <p className="text-sm text-amber-400 font-bold mt-1">Head of Export Operations</p>
-                    <p className="text-xs text-slate-400 font-medium flex items-center justify-center lg:justify-start gap-1 mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                      <span>Lagos, Lagos State, Nigeria 🇳🇬</span>
-                    </p>
-                  </div>
-
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/30 transition shrink-0 flex items-center gap-2 text-xs font-bold"
-                  >
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                    </svg>
-                    <span>Connect on LinkedIn</span>
-                  </a>
-                </div>
-
-                <div className="pt-3 border-t border-slate-800/80 space-y-3">
-                  <div className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-bold bg-emerald-950/40 border border-emerald-500/20 px-3 py-1 rounded-lg">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                    <span>Verified Exporter Badge</span>
-                  </div>
-
-                  <div className="relative">
-                    <Quote className="w-8 h-8 text-slate-800 absolute -top-2 -left-3 -z-0 opacity-50 hidden sm:block" />
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed relative z-10 italic">
-                      &ldquo;Direct commitment to strict moisture control, container stuffing supervision at Lagos Port, and independent SGS/Bureau Veritas pre-shipment inspections.&rdquo;
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="p-4 bg-[#18231E] border-l-4 border-emerald-500 rounded-r-xl space-y-1">
+              <p className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Core Botanical Focus</p>
+              <p className="text-xs text-slate-300">
+                Specializing in export-ready Marjoram, Chamomile, Basil, Spearmint, and Coriander Seeds.
+              </p>
             </div>
           </div>
+
+          <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-[#22332B] bg-[#18231E] shadow-2xl group">
+            <Image
+              src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&q=80"
+              alt="Dried Egyptian Herbs Processing"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0D] via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#141C18]/90 border border-emerald-500/30 rounded-2xl backdrop-blur-md">
+              <h3 className="text-base font-bold text-white">Direct Traceability</h3>
+              <p className="text-xs text-slate-300 mt-1">
+                Every batch is tracked from Al Minya harvest beds to container loading at Alexandria Port.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* ==========================================
-          3. OUR FOREST-TO-PORT PROCESS
-      ========================================== */}
-      <section id="process" className="py-20 px-4 md:px-12 border-b border-slate-800/80">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Traceability
+      {/* 3. CORE CAPABILITIES & VALUE PROPOSITION */}
+      <section className="py-20 md:py-28 bg-[#0B0F0D] border-b border-[#22332B]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#141C18] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+              VALUE PROPOSITION
             </span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Our Forest-To-Port Process</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+              Export Capabilities Built for Importers
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition">
-              <div className="w-12 h-12 bg-amber-500/10 rounded-xl border border-amber-500/20 flex items-center justify-center text-amber-400">
-                <Trees className="w-6 h-6" />
+            
+            <div className="bg-[#121A16] border border-[#22332B] hover:border-emerald-500/40 p-6 rounded-2xl space-y-4 transition-all duration-300 hover:-translate-y-1">
+              <div className="p-3 bg-emerald-950/80 border border-emerald-500/30 rounded-xl text-emerald-400 w-fit">
+                <Leaf className="w-6 h-6" />
               </div>
-              <span className="text-xs font-black text-amber-500">STEP 01</span>
-              <h3 className="text-base font-bold text-white">Sustainable Harvesting</h3>
+              <h3 className="text-base font-bold text-white">Direct Farm Sourcing</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Carbonization of mature Ayin &amp; Hardwood trees in controlled kilns.
+                Zero middleman brokers ensures cost savings and complete field traceability.
               </p>
             </div>
 
-            <div className="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition">
-              <div className="w-12 h-12 bg-amber-500/10 rounded-xl border border-amber-500/20 flex items-center justify-center text-amber-400">
-                <Filter className="w-6 h-6" />
+            <div className="bg-[#121A16] border border-[#22332B] hover:border-emerald-500/40 p-6 rounded-2xl space-y-4 transition-all duration-300 hover:-translate-y-1">
+              <div className="p-3 bg-emerald-950/80 border border-emerald-500/30 rounded-xl text-emerald-400 w-fit">
+                <Wind className="w-6 h-6" />
               </div>
-              <span className="text-xs font-black text-amber-500">STEP 02</span>
-              <h3 className="text-base font-bold text-white">Processing &amp; Screening</h3>
+              <h3 className="text-base font-bold text-white">Precision Air-Sifting</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Double-sifting to eliminate dust and ensure lump size (&gt; 50mm).
+                Advanced mechanical sifting guaranteeing ≥ 99% leaf purity free of stems and dust.
               </p>
             </div>
 
-            <div className="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition">
-              <div className="w-12 h-12 bg-amber-500/10 rounded-xl border border-amber-500/20 flex items-center justify-center text-amber-400">
-                <FlaskConical className="w-6 h-6" />
+            <div className="bg-[#121A16] border border-[#22332B] hover:border-amber-500/40 p-6 rounded-2xl space-y-4 transition-all duration-300 hover:-translate-y-1">
+              <div className="p-3 bg-amber-950/80 border border-amber-500/30 rounded-xl text-amber-400 w-fit">
+                <Sun className="w-6 h-6" />
               </div>
-              <span className="text-xs font-black text-amber-500">STEP 03</span>
-              <h3 className="text-base font-bold text-white">Quality Control &amp; Lab Testing</h3>
+              <h3 className="text-base font-bold text-white">Controlled Solar Drying</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Lab checks for fixed carbon (&gt; 75%), volatile matter, and moisture.
+                Solar curing locks in essential volatile oils, natural color, and robust aroma.
               </p>
             </div>
 
-            <div className="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition">
-              <div className="w-12 h-12 bg-amber-500/10 rounded-xl border border-amber-500/20 flex items-center justify-center text-amber-400">
-                <Ship className="w-6 h-6" />
+            <div className="bg-[#121A16] border border-[#22332B] hover:border-emerald-500/40 p-6 rounded-2xl space-y-4 transition-all duration-300 hover:-translate-y-1">
+              <div className="p-3 bg-emerald-950/80 border border-emerald-500/30 rounded-xl text-emerald-400 w-fit">
+                <FileCheck2 className="w-6 h-6" />
               </div>
-              <span className="text-xs font-black text-amber-500">STEP 04</span>
-              <h3 className="text-base font-bold text-white">Port Loading &amp; BL Issue</h3>
+              <h3 className="text-base font-bold text-white">Export Compliance</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Fast container stuffing at Lagos/Apapa port with instant BL dispatch.
+                Lab-certified batches accompanied by Phytosanitary and Certificate of Analysis (COA).
               </p>
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ==========================================
-          4. SUSTAINABILITY & COMPLIANCE MATRIX
-      ========================================== */}
-      <section className="py-20 px-4 md:px-12 border-b border-slate-800/80 bg-slate-900/30">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Legal Assurance
+      {/* 4. INTERACTIVE EXPORT PROCESS TIMELINE (FARM TO PORT) */}
+      <section className="py-20 md:py-28 bg-[#121A16] border-b border-[#22332B]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#1A2620] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+              WORKFLOW TIMELINE
             </span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">
-              Eco-Conscious Carbonization &amp; Legal Compliance
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+              Farm-To-Port Export Process
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {steps.map((step, idx) => (
+              <div key={idx} className="bg-[#18231E] border border-[#22332B] hover:border-emerald-500/30 p-6 rounded-2xl space-y-3 transition-all relative">
+                <span className="text-3xl font-black text-emerald-400/80 block">{step.num}</span>
+                <h3 className="text-sm font-bold text-white">{step.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. QUALITY ASSURANCE & LAB STANDARDS */}
+      <section className="py-20 md:py-28 bg-[#0B0F0D] border-b border-[#22332B]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#141C18] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+              QUALITY ASSURANCE
+            </span>
+            
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Complying with EU &amp; GCC Import Standards
+            </h2>
+
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+              International B2B orders demand rigorous purity. Every batch produced undergoes chemical and microbial laboratory testing prior to packing.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="flex items-center gap-3 bg-[#121A16] border border-[#22332B] p-3.5 rounded-xl">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs font-bold text-slate-200">Moisture Content &lt; 8%</span>
+              </div>
+              <div className="flex items-center gap-3 bg-[#121A16] border border-[#22332B] p-3.5 rounded-xl">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs font-bold text-slate-200">Purity Grade ≥ 99%</span>
+              </div>
+              <div className="flex items-center gap-3 bg-[#121A16] border border-[#22332B] p-3.5 rounded-xl">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs font-bold text-slate-200">Pesticide Residue Free</span>
+              </div>
+              <div className="flex items-center gap-3 bg-[#121A16] border border-[#22332B] p-3.5 rounded-xl">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs font-bold text-slate-200">Phytosanitary Certified</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 bg-[#121A16] border border-[#22332B] p-8 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+            <ShieldCheck className="w-16 h-16 text-emerald-400 mx-auto" />
+            <div>
+              <h3 className="text-xl font-black text-white uppercase tracking-tight">Lab-Certified Guarantee</h3>
+              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                Full documentation provided to guarantee seamless customs clearance at destination ports.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 6. GLOBAL SHIPPING & CONTAINER LOGISTICS */}
+      <section className="py-20 md:py-28 bg-[#121A16] border-b border-[#22332B]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#1A2620] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+              LOGISTICS CAPABILITIES
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+              Container Logistics &amp; Shipping Terms
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-950/80 p-8 rounded-2xl border border-slate-800 space-y-3">
-              <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-400 w-fit">
-                <FileCheck2 className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-white">FDF &amp; Ministry Approval</h3>
+            <div className="bg-[#18231E] border border-[#22332B] p-6 rounded-2xl space-y-3">
+              <Ship className="w-8 h-8 text-emerald-400" />
+              <h3 className="text-base font-bold text-white">Incoterms Options</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Full government-approved export documentation from Federal Department of Forestry and Ministry of Agriculture.
+                FOB Alexandria Port, CIF, and CFR rates tailored for international procurement teams.
               </p>
             </div>
 
-            <div className="bg-slate-950/80 p-8 rounded-2xl border border-slate-800 space-y-3">
-              <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400 w-fit">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-white">Non-Dangerous Goods Certification</h3>
+            <div className="bg-[#18231E] border border-[#22332B] p-6 rounded-2xl space-y-3">
+              <PackageCheck className="w-8 h-8 text-amber-400" />
+              <h3 className="text-base font-bold text-white">Bulk Packaging</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Complete MSDS and Self-Heating Test Certificates (IMDG Code) for smooth shipping lines approval.
+                20kg / 25kg PP woven bags equipped with internal moisture-proof lining.
               </p>
             </div>
 
-            <div className="bg-slate-950/80 p-8 rounded-2xl border border-slate-800 space-y-3">
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl text-blue-400 w-fit">
-                <Trees className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-white">Reforestation Commitment</h3>
+            <div className="bg-[#18231E] border border-[#22332B] p-6 rounded-2xl space-y-3">
+              <Globe2 className="w-8 h-8 text-emerald-400" />
+              <h3 className="text-base font-bold text-white">Destination Routes</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Ethical timber sourcing from controlled forestry zones, upholding sustainable wood harvesting standards without deforestation.
+                Serving importers across Europe, the Middle East, North America, and Asia.
               </p>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* ==========================================
-          5. LABORATORY & QUALITY STANDARDS TABLE
-      ========================================== */}
-      <section className="py-20 px-4 md:px-12 border-b border-slate-800/80">
-        <div className="max-w-4xl mx-auto space-y-10">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Lab Specifications
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Laboratory &amp; Quality Standards</h2>
-          </div>
+      {/* 7. CALL TO ACTION (RFQ SECTION) */}
+      <section id="rfq" className="py-24 md:py-32 bg-[#0B0F0D] relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="bg-slate-950 border-b border-slate-800 text-amber-400 uppercase tracking-wider">
-                  <tr>
-                    <th className="py-4 px-6 font-black">Parameter</th>
-                    <th className="py-4 px-6 font-black">Export Specification Standard</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  <tr className="hover:bg-slate-950/50 transition">
-                    <td className="py-4 px-6 font-bold text-white">Wood Species</td>
-                    <td className="py-4 px-6 text-amber-400 font-bold">Pure Ayin (Anogeissus leiocarpus) / Hardwood Mix</td>
-                  </tr>
-                  <tr className="hover:bg-slate-950/50 transition">
-                    <td className="py-4 px-6 font-bold text-white">Fixed Carbon</td>
-                    <td className="py-4 px-6 font-semibold">75% – 85% Min</td>
-                  </tr>
-                  <tr className="hover:bg-slate-950/50 transition">
-                    <td className="py-4 px-6 font-bold text-white">Moisture Content</td>
-                    <td className="py-4 px-6 font-semibold text-emerald-400">&lt; 8% Max</td>
-                  </tr>
-                  <tr className="hover:bg-slate-950/50 transition">
-                    <td className="py-4 px-6 font-bold text-white">Ash Content</td>
-                    <td className="py-4 px-6 font-semibold">&lt; 3%</td>
-                  </tr>
-                  <tr className="hover:bg-slate-950/50 transition">
-                    <td className="py-4 px-6 font-bold text-white">Burning Time</td>
-                    <td className="py-4 px-6 font-semibold">5 – 6+ Hours (Zero Spark / Smoke)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================
-          6. GLOBAL SUPPLY LOGISTICS & SHIPPING TERMS
-      ========================================== */}
-      <section className="py-20 px-4 md:px-12 border-b border-slate-800/80 bg-slate-900/30">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Export Logistics
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Global Supply &amp; Shipping Terms</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 space-y-3">
-              <Globe2 className="w-8 h-8 text-amber-400" />
-              <h3 className="text-base font-bold text-white">Supported Shipping Terms</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                FOB (Lagos Port), CIF (Worldwide Destination Ports), and CFR terms tailored to your freight preference.
-              </p>
-            </div>
-
-            <div className="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 space-y-3">
-              <Ship className="w-8 h-8 text-amber-400" />
-              <h3 className="text-base font-bold text-white">Container Loading Capacity</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                40ft High Cube containers holding 20 – 22 Metric Tons, packed in durable 20kg–32kg PP woven bags or customized packaging.
-              </p>
-            </div>
-
-            <div className="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 space-y-3">
-              <CheckCircle2 className="w-8 h-8 text-amber-400" />
-              <h3 className="text-base font-bold text-white">Transparent Payment Terms</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Irrevocable LC (Letter of Credit at sight) or flexible TT (Telegraphic Transfer) milestones for secure trade transactions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================
-          7. CALL TO ACTION (CTA) BANNER
-      ========================================== */}
-      <section className="py-20 px-4 md:px-12 bg-gradient-to-b from-slate-900/60 to-slate-950">
-        <div className="max-w-4xl mx-auto bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl text-center space-y-6 relative overflow-hidden shadow-2xl">
-          <div className="absolute -top-12 -right-12 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-            Secure Your Allocation
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
+          <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#141C18] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+            DIRECT WHOLESALE QUOTE
           </span>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-white">
-            Ready to Lock In Your Seasonal Charcoal Supply?
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            Ready to Source Export-Grade Egyptian Herbs?
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
-            Request an official Proforma Invoice or schedule a direct video inspection from Lagos Port during container loading.
+          <p className="text-slate-300 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed">
+            Request sample packages or get a customized FOB/CIF wholesale quotation within 24 hours.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a
-              href="#rfq"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-slate-950 py-4 px-8 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-xl shadow-amber-500/10 hover:shadow-amber-500/25 active:scale-95"
+              href="https://wa.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-emerald-500/20 transition-all duration-300"
             >
-              <span>Request Proforma Invoice</span>
-              <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+              <MessageSquare className="w-4 h-4 fill-slate-950" />
+              <span>WhatsApp Quick Connect</span>
             </a>
 
             <a
-              href="/sgs-testing-report.pdf"
-              download
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-800 text-white border border-slate-800 py-4 px-8 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300"
+              href="mailto:export@aljarhi.com"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#141C18] hover:bg-[#1C2823] border border-[#22332B] text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition"
             >
-              <Download className="w-4 h-4 text-amber-400" />
-              <span>Download SGS Report (PDF)</span>
+              <span>Email Request</span>
+              <ArrowUpRight className="w-4 h-4 text-emerald-400" />
             </a>
           </div>
         </div>
       </section>
 
-    </main>
+    </div>
   );
 }
