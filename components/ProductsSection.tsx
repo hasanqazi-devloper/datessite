@@ -54,7 +54,7 @@ const products = [
     id: 'rabbi-kaluteh',
     title: 'Rabbi & Kaluteh (ربی و کلوته)',
     subtitle: 'Semi-Dry • Dark Reddish Brown',
-    image: 'https://images.pexels.com/photos/31779629/pexels-photo-31779629.jpeg?_gl=1*zndbyn*_ga*MTk1ODAyMTQxOS4xNzg4OTY1MjY4*_ga_8JE65Q40S6*czE3ODg5NjUyNjgkbzEkZzEkdDE3ODg5NjU0NTQkajU5JGwwJGgw',
+    image: 'https://images.pexels.com/photos/31779629/pexels-photo-31779629.jpeg?_gl=1*zndbyn*_ga*MTk1ODAyMTQxOS4xNzg4OTY1MjY4*_ga_8JE65Q40S6*czE3ODg5NjUyNjgkbzEkZzEkdDE3ODg5NjU0NSQkajU5JGwwJGgw',
     icon: Package,
     badge: 'High Yield Export',
     desc: 'Meaty, long semi-dry dates with sweet caramel taste. Ideal for mass wholesale bulk distribution.',
@@ -110,6 +110,8 @@ export default function ProductsSection() {
                       alt={prod.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      quality={80}
+                      loading={prod.id === 'mazafati' ? 'eager' : 'lazy'}
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-90 group-hover:brightness-105"
                       priority={prod.id === 'mazafati'}
                     />
@@ -140,7 +142,6 @@ export default function ProductsSection() {
 
                   {/* BODY CONTENT */}
                   <div className="p-5 space-y-4">
-                    
                     <p className="text-xs text-[#F4F0E6]/70 leading-relaxed font-normal">
                       {prod.desc}
                     </p>
