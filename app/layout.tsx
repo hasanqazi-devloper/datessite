@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-title: "Farm-to-Port Export Supply Chain | Process & Sourcing",
-description: "Explore our transparent 6-step Egyptian herbs export process—from Al Minya farm harvesting and solar drying to lab analysis and loading at Alexandria Port.",
+title: "Siah Almas Bami | Premium Iranian Dates Exporter",
+description: "Sourcing and exporting high-grade Iranian fresh and semi-fresh dates, including Mazafati, Piarom, and Zahedi, directly from Bam and Jiroft orchards.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path

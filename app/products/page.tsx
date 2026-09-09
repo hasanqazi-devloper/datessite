@@ -4,16 +4,14 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { 
   ArrowDown, 
-  Leaf, 
   ShieldCheck, 
   Filter, 
-  Download, 
   MessageSquare, 
   ArrowUpRight,
-  Sparkles,
-  Check,
   Package,
-  Layers
+  Layers,
+  ThermometerSnowflake,
+  Scale
 } from 'lucide-react';
 
 export default function ProductsPage() {
@@ -21,153 +19,146 @@ export default function ProductsPage() {
 
   const products = [
     {
-      id: 'marjoram',
-      name: 'Egyptian Dried Marjoram',
-      botanicalName: 'Origanum majorana',
-      category: 'Leaves & Herbs',
-      purity: '≥ 99% Pure Leaves',
-      moisture: '< 8%',
-      oilContent: '1.2% - 1.5%',
-      moq: '5 Metric Tons (1x20ft FCL)',
-      packaging: '20kg / 25kg PP Woven Bags',
-      image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&q=80',
-      description: 'Sun-dried Al Minya Marjoram with high essential oil content, air-sifted for zero stems and dust.',
-      tags: ['Top Exporter Choice', 'EU Standard']
-    },
-    {
-      id: 'chamomile',
-      name: 'Dried Chamomile Flowers',
-      botanicalName: 'Matricaria chamomilla',
-      category: 'Flowers',
-      purity: '≥ 98% Whole Flowers',
-      moisture: '< 9%',
-      oilContent: '0.8% - 1.1%',
-      moq: '3 Metric Tons',
-      packaging: '15kg Carton Boxes / PP Bags',
-      image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80',
-      description: 'Bright golden chamomile flower heads harvested from fertile Egyptian soil, ideal for herbal tea blends.',
-      tags: ['Tea Grade', 'High Aroma']
-    },
-    {
-      id: 'basil',
-      name: 'Egyptian Basil Leaves',
-      botanicalName: 'Ocimum basilicum',
-      category: 'Leaves & Herbs',
-      purity: '≥ 99% Crushed / Whole',
-      moisture: '< 7.5%',
-      oilContent: '1.0% - 1.4%',
-      moq: '5 Metric Tons',
-      packaging: '20kg Kraft Paper / PP Bags',
-      image: 'https://plus.unsplash.com/premium_photo-1673264299391-8ca6b2b1a667?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZHJpZWQlMjBiYXNpbCUyMCUyRiUyMGJhc2lsJTIwbGVhdmVzfGVufDB8fDB8fHww',
-      description: 'Aromatic sweet dried basil leaves processed under strict temperature-controlled solar drying.',
-      tags: ['Culinary Grade', 'Lab Certified']
-    },
-    {
-      id: 'spearmint',
-      name: 'Dried Spearmint & Peppermint',
-      botanicalName: 'Mentha spicata / piperita',
-      category: 'Leaves & Herbs',
-      purity: '≥ 98.5%',
-      moisture: '< 8%',
-      oilContent: '1.5% - 2.0%',
-      moq: '4 Metric Tons',
-      packaging: '20kg PP Bags with Liner',
-      image: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&q=80',
-      description: 'Intense menthol fragrance mint leaves sifted for tea bag cut and fine culinary applications.',
-      tags: ['High Essential Oil']
-    },
-    {
-      id: 'coriander',
-      name: 'Whole Coriander Seeds',
-      botanicalName: 'Coriandrum sativum',
-      category: 'Seeds & Spices',
-      purity: '≥ 99% Clean Whole',
-      moisture: '< 9%',
-      oilContent: '0.5% - 0.8%',
-      moq: '10 Metric Tons',
-      packaging: '25kg / 50kg PP Bags',
+      id: 'mazafati',
+      name: 'Fresh Mazafati Dates (Bam)',
+      botanicalName: 'Phoenix dactylifera L. - Rotab',
+      category: 'Fresh & Semi-Fresh',
+      moisture: '18% - 22%',
+      shelfLife: '12 Months (Cold Stored 0°C to 5°C)',
+      moq: '15 Metric Tons (1x20ft Reefer FCL)',
+      packaging: '500g / 600g / 800g Retail Boxes (12/Master Carton)',
       image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
-      description: 'Golden yellow whole coriander seeds machine-cleaned for spice processors and extraction facilities.',
-      tags: ['Bulk Export', 'Clean Machine Grade']
+      description: 'Plump, soft black Rotab dates sourced directly from Bam palm orchards. Famous for rich natural sweetness, thin skin, and high juice content.',
+      tags: ['Best Seller', 'Bam Origin']
     },
     {
-      id: 'hibiscus',
-      name: 'Hibiscus Flowers (Karkadeh)',
-      botanicalName: 'Hibiscus sabdariffa',
-      category: 'Flowers',
-      purity: '≥ 98% Whole Calyces',
-      moisture: '< 10%',
-      oilContent: 'Natural Organic Acids',
+      id: 'piarom',
+      name: 'Royal Piarom Dates (Chocolate Dates)',
+      botanicalName: 'Phoenix dactylifera L. - Semi-Dry',
+      category: 'Semi-Dry & Dry',
+      moisture: '< 15%',
+      shelfLife: '18 Months (Ambient / Cool Storage)',
       moq: '5 Metric Tons',
-      packaging: '25kg Compressed Bales / Bags',
+      packaging: '5kg / 10kg Export Cartons / Vacuum Packed',
+      image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80',
+      description: 'Luxury semi-dry dates with a dark brown skin fused to the flesh. Known as the chocolate date due to its rich caramel-like taste profile.',
+      tags: ['Premium Grade A', 'High Shelf Life']
+    },
+    {
+      id: 'zahedi',
+      name: 'Golden Zahedi Dates',
+      botanicalName: 'Phoenix dactylifera L. - Dry',
+      category: 'Semi-Dry & Dry',
+      moisture: '< 14%',
+      shelfLife: '24 Months (Standard Storage)',
+      moq: '10 Metric Tons',
+      packaging: '10kg / 25kg PP Bags / Master Cartons',
+      image: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&q=80',
+      description: 'Golden-yellow dry dates with low sugar density and long shelf life. Extensively demanded by spice importers, bakeries, and direct consumers.',
+      tags: ['High Demand', 'Industrial & Retail']
+    },
+    {
+      id: 'kaluteh',
+      name: 'Fresh Kaluteh (Kalooteh) Dates',
+      botanicalName: 'Phoenix dactylifera L. - Semi-Fresh',
+      category: 'Fresh & Semi-Fresh',
+      moisture: '16% - 18%',
+      shelfLife: '12 Months (Cold Storage 2°C to 5°C)',
+      moq: '10 Metric Tons',
+      packaging: '5kg / 10kg Cartons or 500g Trays',
+      image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&q=80',
+      description: 'Cultivated in Jiroft groves, similar in appearance to Mazafati but slightly drier texture, offering high resistance to handling during transport.',
+      tags: ['Jiroft Harvest', 'Cost Efficient']
+    },
+    {
+      id: 'rabbi',
+      name: 'Dark Long Rabbi Dates',
+      botanicalName: 'Phoenix dactylifera L. - Semi-Dry',
+      category: 'Semi-Dry & Dry',
+      moisture: '< 16%',
+      shelfLife: '18 Months (Cool Storage)',
+      moq: '5 Metric Tons',
+      packaging: '10kg Bulk Cartons / 1kg Retail Boxes',
       image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80',
-      description: 'Deep crimson Egyptian hibiscus calyces prized for rich color extraction and beverage manufacturing.',
-      tags: ['Deep Red Color', 'Beverage Ready']
+      description: 'Long reddish-black semi-dry dates with a distinctive chewy texture. Naturally sweet with minimal moisture, ideal for snack manufacturing.',
+      tags: ['Long Shelf Life', 'Chewy Texture']
+    },
+    {
+      id: 'date-paste',
+      name: 'Industrial Date Paste & Syrup',
+      botanicalName: 'Phoenix dactylifera Processed',
+      category: 'Value-Added Products',
+      moisture: '18% - 20%',
+      shelfLife: '18 Months',
+      moq: '10 Metric Tons',
+      packaging: '12.5kg / 25kg Food-Grade Plastic Drums / Buckets',
+      image: 'https://plus.unsplash.com/premium_photo-1673264299391-8ca6b2b1a667?w=500&auto=format&fit=crop&q=60',
+      description: '100% natural date paste without additive sugars or preservatives. Used as natural sweetener for confectionery, energy bars, and bakery products.',
+      tags: ['Industrial Grade', '100% Natural Sugar']
     }
   ];
 
-  const categories = ['All', 'Leaves & Herbs', 'Flowers', 'Seeds & Spices'];
+  const categories = ['All', 'Fresh & Semi-Fresh', 'Semi-Dry & Dry', 'Value-Added Products'];
 
   const filteredProducts = activeCategory === 'All' 
     ? products 
     : products.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-[#0B0F0D] text-[#E2ECE6] min-h-screen selection:bg-emerald-500 selection:text-slate-950">
+    <div className="bg-[#0B2B22] text-[#F4F0E6] min-h-screen selection:bg-[#C5922E] selection:text-[#0B2B22]">
 
-      {/* 1. HERO SECTION (PRODUCT CATALOGUE) */}
-      <section className="relative bg-[#0B0F0D] text-white overflow-hidden py-28 md:py-36 border-b border-[#22332B]">
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-[#0B2B22] text-[#F4F0E6] overflow-hidden py-28 md:py-36 border-b border-[#1A4337]">
         
-        {/* Background Field Image */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80"
-            alt="Egyptian Spice Sourcing"
+            alt="Iranian Date Palms Harvest"
             fill
             priority
-            className="object-cover object-center opacity-20 grayscale-[30%] mix-blend-luminosity scale-105"
+            className="object-cover object-center opacity-20 brightness-75 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F0D] via-[#0B0F0D]/90 to-[#0B0F0D]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0D] via-transparent to-[#0B0F0D]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2B22] via-[#0B2B22]/90 to-[#0B2B22]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B22] via-transparent to-[#0B2B22]/80" />
         </div>
 
-        {/* Ambient Glow Effects */}
-        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-[140px] pointer-events-none animate-pulse" />
-        <div className="absolute top-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none z-0" />
+        {/* Ambient Gold Glow Effects */}
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5922E]/15 rounded-full blur-[140px] pointer-events-none animate-pulse" />
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#1A4337]/40 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl space-y-7 text-left">
             
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-[#141C18]/90 border border-emerald-500/40 px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-emerald-400 uppercase shadow-xl backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <div className="inline-flex items-center gap-2.5 bg-[#133A2E]/90 border border-[#C5922E]/40 px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-[#C5922E] uppercase shadow-xl backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-[#C5922E] animate-ping" />
               <span>EXPORT CATALOGUE</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none uppercase">
-              <span className="text-white">OUR </span>
-              <span className="text-emerald-400 drop-shadow-[0_0_25px_rgba(16,185,129,0.3)]">PRODUCTS.</span>
+              <span className="text-[#F4F0E6]">OUR </span>
+              <span className="text-[#C5922E] drop-shadow-[0_0_25px_rgba(197,146,46,0.3)]">PRODUCTS.</span>
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-100 tracking-tight leading-tight">
-              Export-Grade Egyptian Herbs, Botanicals &amp; Seeds
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#F4F0E6] tracking-tight leading-tight">
+              Export-Grade Iranian Fresh &amp; Dry Dates
             </h2>
 
             {/* Description */}
-            <p className="text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed max-w-2xl">
-              100% naturally solar-dried, lab-inspected, and air-sifted for bulk global distribution straight from Al Minya farms.
+            <p className="text-[#F4F0E6]/80 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl">
+              100% hand-harvested, lab-certified, and cold-stored dates processed in Bam &amp; Jiroft facilities for global B2B distributors.
             </p>
 
             {/* Action Button */}
             <div className="pt-2">
               <a
                 href="#catalog"
-                className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/40 transform active:scale-95 group"
+                className="inline-flex items-center gap-3 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-[#C5922E]/20 hover:shadow-[#C5922E]/40 transform active:scale-95 group"
               >
-                <span>EXPLORE PRODUCTS</span>
+                <span>EXPLORE CATALOGUE</span>
                 <ArrowDown className="w-4 h-4 stroke-[3] transition-transform duration-300 group-hover:translate-y-1" />
               </a>
             </div>
@@ -177,14 +168,14 @@ export default function ProductsPage() {
       </section>
 
       {/* 2. FILTER & CATALOGUE GRID */}
-      <section id="catalog" className="py-20 md:py-28 bg-[#121A16] border-b border-[#22332B]">
+      <section id="catalog" className="py-20 md:py-28 bg-[#133A2E] border-b border-[#1A4337]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
           
           {/* CATEGORY FILTER TABS */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#22332B] pb-6">
-            <div className="flex items-center gap-2 text-xs font-black text-emerald-400 uppercase tracking-widest">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1A4337] pb-6">
+            <div className="flex items-center gap-2 text-xs font-black text-[#C5922E] uppercase tracking-widest">
               <Filter className="w-4 h-4" />
-              <span>Filter Category:</span>
+              <span>Filter Variety:</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -194,8 +185,8 @@ export default function ProductsPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 ${
                     activeCategory === cat
-                      ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20'
-                      : 'bg-[#18231E] text-slate-300 border border-[#22332B] hover:border-emerald-500/40 hover:text-white'
+                      ? 'bg-[#C5922E] text-[#0B2B22] shadow-lg shadow-[#C5922E]/20'
+                      : 'bg-[#0B2B22] text-[#F4F0E6]/80 border border-[#1A4337] hover:border-[#C5922E]/40 hover:text-[#F4F0E6]'
                   }`}
                 >
                   {cat}
@@ -209,23 +200,23 @@ export default function ProductsPage() {
             {filteredProducts.map((product) => (
               <div 
                 key={product.id}
-                className="bg-[#18231E] border border-[#22332B] hover:border-emerald-500/50 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 shadow-xl flex flex-col justify-between group"
+                className="bg-[#0B2B22] border border-[#1A4337] hover:border-[#C5922E]/50 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 shadow-xl flex flex-col justify-between group"
               >
                 <div>
                   {/* IMAGE CONTAINER */}
-                  <div className="relative h-60 w-full overflow-hidden bg-[#121A16]">
+                  <div className="relative h-60 w-full overflow-hidden bg-[#0B2B22]">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#18231E] via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B22] via-transparent to-transparent" />
                     
                     {/* Tags */}
                     <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
                       {product.tags.map((tag, i) => (
-                        <span key={i} className="bg-[#141C18]/90 border border-emerald-500/30 text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full uppercase backdrop-blur-md">
+                        <span key={i} className="bg-[#133A2E]/90 border border-[#C5922E]/40 text-[#C5922E] text-[10px] font-black px-2.5 py-1 rounded-full uppercase backdrop-blur-md">
                           {tag}
                         </span>
                       ))}
@@ -235,38 +226,38 @@ export default function ProductsPage() {
                   {/* PRODUCT DETAILS */}
                   <div className="p-6 space-y-4">
                     <div>
-                      <span className="text-[10px] font-black tracking-widest text-emerald-400 uppercase block mb-1">
+                      <span className="text-[10px] font-black tracking-widest text-[#C5922E] uppercase block mb-1">
                         {product.category}
                       </span>
-                      <h3 className="text-xl font-black text-white tracking-tight leading-tight">
+                      <h3 className="text-xl font-black text-[#F4F0E6] tracking-tight leading-tight">
                         {product.name}
                       </h3>
-                      <p className="text-xs italic text-slate-400 font-serif mt-0.5">
+                      <p className="text-xs italic text-[#F4F0E6]/60 font-serif mt-0.5">
                         {product.botanicalName}
                       </p>
                     </div>
 
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-xs text-[#F4F0E6]/80 leading-relaxed font-normal">
                       {product.description}
                     </p>
 
                     {/* KEY SPECS LIST */}
-                    <div className="space-y-2 pt-2 border-t border-[#22332B]">
+                    <div className="space-y-2 pt-2 border-t border-[#1A4337]">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Purity Grade:</span>
-                        <span className="font-bold text-emerald-400">{product.purity}</span>
+                        <span className="text-[#F4F0E6]/60">Moisture Content:</span>
+                        <span className="font-bold text-[#C5922E]">{product.moisture}</span>
                       </div>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Moisture Level:</span>
-                        <span className="font-bold text-slate-200">{product.moisture}</span>
+                        <span className="text-[#F4F0E6]/60">Storage / Shelf Life:</span>
+                        <span className="font-bold text-[#F4F0E6]">{product.shelfLife}</span>
                       </div>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Volatile Oil:</span>
-                        <span className="font-bold text-amber-400">{product.oilContent}</span>
+                        <span className="text-[#F4F0E6]/60">Min. Order (MOQ):</span>
+                        <span className="font-bold text-[#F4F0E6]">{product.moq}</span>
                       </div>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Min. Order (MOQ):</span>
-                        <span className="font-bold text-slate-200">{product.moq}</span>
+                        <span className="text-[#F4F0E6]/60">Packaging Type:</span>
+                        <span className="font-bold text-[#F4F0E6]/90 truncate max-w-[170px] text-right" title={product.packaging}>{product.packaging}</span>
                       </div>
                     </div>
                   </div>
@@ -276,7 +267,7 @@ export default function ProductsPage() {
                 <div className="p-6 pt-0">
                   <a
                     href="#rfq"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#141C18] hover:bg-emerald-500 hover:text-slate-950 border border-[#22332B] hover:border-emerald-500 text-slate-200 font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#133A2E] hover:bg-[#C5922E] hover:text-[#0B2B22] border border-[#1A4337] hover:border-[#C5922E] text-[#F4F0E6] font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300"
                   >
                     <span>Request FOB/CIF Quote</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -290,48 +281,48 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 3. QUALITY & PACKAGING SPECIFICATIONS */}
-      <section className="py-20 md:py-28 bg-[#0B0F0D] border-b border-[#22332B]">
+      {/* 3. PACKAGING & COLD STORAGE SPECS */}
+      <section className="py-20 md:py-28 bg-[#0B2B22] border-b border-[#1A4337]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#141C18] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
-              EXPORT STANDARDS
+            <span className="text-[#C5922E] text-xs font-black tracking-widest uppercase bg-[#133A2E] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block">
+              EXPORTS &amp; PACKAGING
             </span>
 
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Custom Bulk Packaging &amp; Processing
+            <h2 className="text-3xl sm:text-4xl font-black text-[#F4F0E6] tracking-tight">
+              Custom Private Labeling &amp; Reefer Packaging
             </h2>
 
-            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-              We process product cuts based on buyer specifications—ranging from whole leaves and seeds to TBC (Tea Bag Cut) and powder grades.
+            <p className="text-[#F4F0E6]/80 text-sm md:text-base leading-relaxed">
+              Whether you require retail-ready branded boxes for supermarket chains or bulk industrial packaging for food processors, we accommodate custom packing specifications.
             </p>
 
             <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3 bg-[#121A16] border border-[#22332B] p-4 rounded-2xl">
-                <Package className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-[#133A2E] border border-[#1A4337] p-4 rounded-2xl">
+                <Package className="w-5 h-5 text-[#C5922E] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase">Protective Export Lining</h4>
-                  <p className="text-xs text-slate-400">20kg / 25kg Polypropylene (PP) woven bags with polyethylene moisture barriers.</p>
+                  <h4 className="text-xs font-bold text-[#F4F0E6] uppercase">Retail &amp; Bulk Packing Options</h4>
+                  <p className="text-xs text-[#F4F0E6]/70">500g, 600g, 800g retail trays, or 5kg/10kg heavy-duty corrugated export cartons.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-[#121A16] border border-[#22332B] p-4 rounded-2xl">
-                <Layers className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-[#133A2E] border border-[#1A4337] p-4 rounded-2xl">
+                <ThermometerSnowflake className="w-5 h-5 text-[#C5922E] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase">Custom Cuts &amp; Sifting</h4>
-                  <p className="text-xs text-slate-400">Available in Whole Leaf, Coarse Crushed, TBC (0.5mm - 2mm), and Powder options.</p>
+                  <h4 className="text-xs font-bold text-[#F4F0E6] uppercase">Cold Chain Reefers</h4>
+                  <p className="text-xs text-[#F4F0E6]/70">40ft Reefer containers dispatched at 0°C to 5°C with continuous temperature tracking.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-[#121A16] border border-[#22332B] p-8 rounded-3xl space-y-6 text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-            <ShieldCheck className="w-16 h-16 text-emerald-400 mx-auto" />
-            <h3 className="text-xl font-black text-white uppercase tracking-tight">Batch Lab Compliance</h3>
-            <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
-              Every export shipment is issued a Certificate of Analysis (COA) detailing moisture percentage, volatile oil content, and phytosanitary purity.
+          <div className="lg:col-span-6 bg-[#133A2E] border border-[#1A4337] p-8 rounded-3xl space-y-6 text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-[#C5922E]/10 rounded-full blur-3xl pointer-events-none" />
+            <ShieldCheck className="w-16 h-16 text-[#C5922E] mx-auto" />
+            <h3 className="text-xl font-black text-[#F4F0E6] uppercase tracking-tight">Batch Quality Assurance</h3>
+            <p className="text-xs text-[#F4F0E6]/70 max-w-md mx-auto leading-relaxed">
+              Every container includes official Phytosanitary Certificates, Fumigation Inspection, and Lab Certificates of Analysis (COA) for rapid customs release.
             </p>
           </div>
 
@@ -339,20 +330,20 @@ export default function ProductsPage() {
       </section>
 
       {/* 4. CALL TO ACTION (RFQ SECTION) */}
-      <section id="rfq" className="py-24 md:py-32 bg-[#0B0F0D] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <section id="rfq" className="py-24 md:py-32 bg-[#0B2B22] relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5922E]/10 rounded-full blur-[160px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
-          <span className="text-emerald-400 text-xs font-black tracking-widest uppercase bg-[#141C18] border border-emerald-500/30 px-3.5 py-1.5 rounded-full inline-block">
+          <span className="text-[#C5922E] text-xs font-black tracking-widest uppercase bg-[#133A2E] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block">
             DIRECT WHOLESALE QUOTE
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F4F0E6] tracking-tight leading-tight">
             Request Product Samples &amp; Container Pricing
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed">
-            Specify your required tonnage, product cut, and destination port for an immediate FOB or CIF quote.
+          <p className="text-[#F4F0E6]/80 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed">
+            Specify your desired variety, tonnage, packaging, and target port (e.g., Nhava Sheva, Jebel Ali, St. Petersburg) for a 24-hour FOB or CIF quote.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -360,18 +351,18 @@ export default function ProductsPage() {
               href="https://wa.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-emerald-500/20 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-[#C5922E]/20 transition-all duration-300"
             >
-              <MessageSquare className="w-4 h-4 fill-slate-950" />
+              <MessageSquare className="w-4 h-4 fill-[#0B2B22]" />
               <span>WhatsApp Quick Connect</span>
             </a>
 
             <a
-              href="mailto:export@aljarhi.com"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#141C18] hover:bg-[#1C2823] border border-[#22332B] text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition"
+              href="mailto:export@siah-almas.com"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#133A2E] hover:bg-[#1A4337] border border-[#1A4337] text-[#F4F0E6] font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition"
             >
               <span>Email Request</span>
-              <ArrowUpRight className="w-4 h-4 text-emerald-400" />
+              <ArrowUpRight className="w-4 h-4 text-[#C5922E]" />
             </a>
           </div>
         </div>

@@ -4,179 +4,186 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowUpRight, MessageSquare, Globe } from 'lucide-react';
 import Image from 'next/image';
-
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState<'EN' | 'AR'>('EN');
+  const [lang, setLang] = useState<'EN' | 'FA' | 'AR'>('EN');
+
+  const toggleLanguage = () => {
+    if (lang === 'EN') setLang('FA');
+    else if (lang === 'FA') setLang('AR');
+    else setLang('EN');
+  };
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-[#0B0F0D]/95 backdrop-blur-xl border-b border-[#22332B] shadow-2xl py-3.5 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[#0B2B22]/95 backdrop-blur-xl border-b border-[#1A4337] shadow-2xl py-3.5 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* BRAND LOGO */}
-        <Link href="/" className="flex items-center group py-1">
-          <div className="relative h-11 md:h-13 w-44 md:w-56 flex items-center transition-transform duration-300 group-hover:scale-[1.02]">
-            <Image
-              src="/navbar.png"
-              alt="Al-Jarhi Trading Logo"
-              fill
-              sizes="(max-width: 768px) 176px, 224px"
-              className="object-contain object-left priority drop-shadow-[0_4px_16px_rgba(16,185,129,0.15)]"
-              priority
-            />
-          </div>
-        </Link>
+        {/* BRAND LOGO / NAME */}
+     <Link href="/" className="flex items-center group py-1 shrink-0">
+  <div className="relative flex items-center transition-transform duration-300 group-hover:scale-[1.02]">
+    <Image
+      src="/navbar.png"
+      alt="Siah Almas-e Bami Logo"
+      width={240}
+      height={80}
+      quality={100}
+      unoptimized
+      className="h-12 md:h-14 w-auto object-contain drop-shadow-md brightness-105 contrast-105"
+      priority
+    />
+  </div>
+</Link>
 
-        {/* DESKTOP NAV LINKS (SHORT & CLEAN) */}
-        <nav className="hidden lg:flex items-center gap-8 bg-[#141C18]/90 border border-[#22332B] rounded-full px-8 py-2.5 shadow-inner backdrop-blur-md">
+        {/* DESKTOP NAV LINKS (COMPACT & CLEAN) */}
+        <nav className="hidden lg:flex items-center gap-6 bg-[#133A2E]/90 border border-[#1A4337] rounded-full px-6 py-2 shadow-inner backdrop-blur-md">
           <Link
             href="/"
-            className="text-xs font-black uppercase tracking-wider text-emerald-100/80 hover:text-emerald-400 transition-colors relative group py-1"
+            className="text-xs font-bold uppercase tracking-wider text-[#EFECE6]/80 hover:text-[#C5922E] transition-colors relative group py-1"
           >
             Home
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5922E] group-hover:w-full transition-all duration-300 rounded-full" />
           </Link>
 
           <Link
             href="/products"
-            className="text-xs font-black uppercase tracking-wider text-emerald-100/80 hover:text-emerald-400 transition-colors relative group py-1"
+            className="text-xs font-bold uppercase tracking-wider text-[#EFECE6]/80 hover:text-[#C5922E] transition-colors relative group py-1"
           >
             Products
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5922E] group-hover:w-full transition-all duration-300 rounded-full" />
           </Link>
 
           <Link
-            href="/process"
-            className="text-xs font-black uppercase tracking-wider text-emerald-100/80 hover:text-emerald-400 transition-colors relative group py-1"
+            href="/facilities"
+            className="text-xs font-bold uppercase tracking-wider text-[#EFECE6]/80 hover:text-[#C5922E] transition-colors relative group py-1"
           >
-            Process
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            Facilities
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5922E] group-hover:w-full transition-all duration-300 rounded-full" />
           </Link>
 
           <Link
-            href="/quality"
-            className="text-xs font-black uppercase tracking-wider text-emerald-100/80 hover:text-emerald-400 transition-colors relative group py-1"
+            href="/logistics"
+            className="text-xs font-bold uppercase tracking-wider text-[#EFECE6]/80 hover:text-[#C5922E] transition-colors relative group py-1"
           >
-            Quality
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            Shipping
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5922E] group-hover:w-full transition-all duration-300 rounded-full" />
           </Link>
 
           <Link
             href="/contact"
-            className="text-xs font-black uppercase tracking-wider text-emerald-100/80 hover:text-emerald-400 transition-colors relative group py-1"
+            className="text-xs font-bold uppercase tracking-wider text-[#EFECE6]/80 hover:text-[#C5922E] transition-colors relative group py-1"
           >
             Contact
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5922E] group-hover:w-full transition-all duration-300 rounded-full" />
           </Link>
         </nav>
 
         {/* ACTION BUTTONS & LANGUAGE SWITCHER */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2.5 shrink-0">
           {/* LANGUAGE TOGGLE */}
           <button
-            onClick={() => setLang(lang === 'EN' ? 'AR' : 'EN')}
-            className="flex items-center gap-1.5 text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-2.5 rounded-xl hover:bg-amber-500/20 transition cursor-pointer"
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-xs font-bold text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-2.5 py-2 rounded-xl hover:bg-[#C5922E]/20 transition cursor-pointer"
           >
-            <Globe className="w-3.5 h-3.5 text-amber-400" />
+            <Globe className="w-3.5 h-3.5 text-[#C5922E]" />
             <span>{lang}</span>
           </button>
 
           {/* WHATSAPP ACTION */}
           <a
-            href="https://wa.me/"
+            href="https://wa.me/989128937051"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3.5 py-2.5 rounded-xl hover:bg-emerald-900/60 transition shadow-sm"
+            className="flex items-center gap-1.5 text-xs font-bold text-[#EFECE6] bg-[#133A2E] border border-[#1A4337] px-3 py-2 rounded-xl hover:border-[#C5922E]/50 transition shadow-sm"
           >
-            <MessageSquare className="w-4 h-4 text-emerald-400" />
+            <MessageSquare className="w-3.5 h-3.5 text-[#C5922E]" />
             <span>WhatsApp</span>
           </a>
 
           {/* RFQ CTA BUTTON */}
           <a
             href="#rfq"
-            className="relative inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black uppercase tracking-wider px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all transform hover:scale-[1.02] active:scale-95"
+            className="relative inline-flex items-center gap-1.5 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] text-xs font-black uppercase tracking-wider px-4 py-2 rounded-xl shadow-lg shadow-[#C5922E]/20 transition-all transform hover:scale-[1.02] active:scale-95 whitespace-nowrap"
           >
             <span>Get Quote</span>
-            <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+            <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
           </a>
         </div>
 
         {/* MOBILE TOGGLE BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2.5 text-white bg-[#141C18] rounded-xl border border-[#22332B] hover:border-emerald-500/50 transition cursor-pointer"
+          className="lg:hidden p-2 text-white bg-[#133A2E] rounded-xl border border-[#1A4337] hover:border-[#C5922E]/50 transition cursor-pointer"
           aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6 text-emerald-400" /> : <Menu className="w-6 h-6 text-slate-200" />}
+          {mobileMenuOpen ? <X className="w-5 h-5 text-[#C5922E]" /> : <Menu className="w-5 h-5 text-[#EFECE6]" />}
         </button>
 
       </div>
 
       {/* MOBILE DRAWER */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0B0F0D]/98 backdrop-blur-2xl border-b border-[#22332B] px-6 py-6 space-y-5 animate-in slide-in-from-top duration-300 shadow-2xl">
-          <nav className="flex flex-col space-y-4 text-xs font-black uppercase tracking-wider text-emerald-100/80">
+        <div className="lg:hidden bg-[#0B2B22]/98 backdrop-blur-2xl border-b border-[#1A4337] px-6 py-6 space-y-5 animate-in slide-in-from-top duration-300 shadow-2xl">
+          <nav className="flex flex-col space-y-4 text-xs font-black uppercase tracking-wider text-[#EFECE6]/80">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-emerald-400 transition"
+              className="hover:text-[#C5922E] transition"
             >
               Home
             </Link>
             <Link
               href="/products"
               onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-emerald-400 transition"
+              className="hover:text-[#C5922E] transition"
             >
               Products
             </Link>
             <Link
-              href="/process"
+              href="/facilities"
               onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-emerald-400 transition"
+              className="hover:text-[#C5922E] transition"
             >
-              Process
+              Facilities
             </Link>
             <Link
-              href="/quality"
+              href="/logistics"
               onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-emerald-400 transition"
+              className="hover:text-[#C5922E] transition"
             >
-              Quality
+              Shipping
             </Link>
             <Link
               href="#rfq"
               onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-emerald-400 transition"
+              className="hover:text-[#C5922E] transition"
             >
               Contact
             </Link>
           </nav>
 
-          <div className="pt-4 border-t border-[#22332B] space-y-3">
+          <div className="pt-4 border-t border-[#1A4337] space-y-3">
             <button
-              onClick={() => setLang(lang === 'EN' ? 'AR' : 'EN')}
-              className="flex items-center justify-center gap-2 w-full text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 py-2.5 rounded-xl"
+              onClick={toggleLanguage}
+              className="flex items-center justify-center gap-2 w-full text-xs font-bold text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/20 py-2.5 rounded-xl"
             >
               <Globe className="w-4 h-4" />
               <span>Language: {lang}</span>
             </button>
 
             <a
-              href="https://wa.me/"
+              href="https://wa.me/989128937051"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 py-3 rounded-xl"
+              className="flex items-center justify-center gap-2 w-full text-xs font-bold text-[#EFECE6] bg-[#133A2E] border border-[#1A4337] py-3 rounded-xl"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>WhatsApp Direct</span>
+              <MessageSquare className="w-4 h-4 text-[#C5922E]" />
+              <span>WhatsApp (+98 912 893 7051)</span>
             </a>
 
             <a
               href="#rfq"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black uppercase tracking-wider py-3.5 rounded-xl shadow-md"
+              className="flex items-center justify-center gap-2 w-full bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] text-xs font-black uppercase tracking-wider py-3.5 rounded-xl shadow-md"
             >
               <span>Get Quote</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
